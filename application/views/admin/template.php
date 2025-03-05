@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Home | Dashboardkit Dashboard Template</title>
+    <title><?= $title ?> | CGANT</title>
     <!-- [Meta] -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="<?= base_url('template/admin') ?>/fonts/material.css">
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="<?= base_url('template/admin') ?>/css/style.css" id="main-style-link">
+    <link rel="stylesheet" href="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.css') ?>">
 </head>
 
 <body data-pc-preset="preset-1" data-pc-sidebar-theme="dark" data-pc-header-theme="light" data-pc-sidebar-caption="true"
@@ -49,49 +50,26 @@
             </div>
             <div class="navbar-content">
                 <ul class="pc-navbar">
-                    <li class="pc-item pc-caption"><label>Navigation</label></li>
-                    <li class="pc-item"><a href="../dashboard/index.html" class="pc-link"><span class="pc-micon"><i
-                                    class="material-icons-two-tone">home</i> </span><span
-                                class="pc-mtext">Dashboard</span></a></li>
+                    <!-- <li class="pc-item pc-caption"><label>Navigation</label></li> -->
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="material-icons-two-tone">home</i> </span>
+                            <span class="pc-mtext">Dashboard</span>
+                        </a>
+                    </li>
 
 
                     <li class="pc-item pc-hasmenu">
-                        <a href="#!" class="pc-link"><span class="pc-micon"><i
-                                    class="material-icons-two-tone">list_alt</i></span> <span class="pc-mtext">Menu
-                                levels</span> <span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                        <a href="#!" class="pc-link">
+                            <span class="pc-micon">
+                                <i class="material-icons-two-tone">list_alt</i></span>
+                            <span class="pc-mtext">Master</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+
                         <ul class="pc-submenu">
-                            <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
-                            <li class="pc-item pc-hasmenu">
-                                <a href="#!" class="pc-link">Level 2.2 <span class="pc-arrow"><i
-                                            data-feather="chevron-right"></i></span></a>
-                                <ul class="pc-submenu">
-                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                                    <li class="pc-item pc-hasmenu">
-                                        <a href="#!" class="pc-link">Level 3.3 <span class="pc-arrow"><i
-                                                    data-feather="chevron-right"></i></span></a>
-                                        <ul class="pc-submenu">
-                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="pc-item pc-hasmenu">
-                                <a href="#!" class="pc-link">Level 2.3 <span class="pc-arrow"><i
-                                            data-feather="chevron-right"></i></span></a>
-                                <ul class="pc-submenu">
-                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                                    <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                                    <li class="pc-item pc-hasmenu">
-                                        <a href="#!" class="pc-link">Level 3.3 <span class="pc-arrow"><i
-                                                    data-feather="chevron-right"></i></span></a>
-                                        <ul class="pc-submenu">
-                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                                            <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <li class="pc-item"><a class="pc-link" href="<?= base_url('admin/master_jurusan') ?>">Master
+                                    Jurusan</a>
                             </li>
                         </ul>
                     </li>
@@ -172,7 +150,7 @@
     <!-- [ Main Content ] start -->
     <div class="pc-container">
         <div class="pc-content">
-
+            <?php $this->load->view($view) ?>
         </div>
     </div>
     <!-- [ Main Content ] end -->
@@ -196,6 +174,64 @@
 
 
     <script src="<?= base_url('template/client') ?>/extensions/jquery/jquery.min.js"></script>
+    <script src="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.js') ?>"></script>
+    <script>
+    const base_url = '<?= base_url() ?>'
+
+    function loading_animation() {
+        Swal.fire({
+            title: 'Loading..',
+            html: 'Please wait..',
+            timerProgressBar: true,
+            draggable: true,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading()
+            },
+        })
+    }
+
+    function regenerate_token(token) {
+        const c_name = '<?= $this->security->get_csrf_token_name() ?>'
+        $('input[name="' + c_name + '"]').val(token)
+    }
+
+    function error_alert(msg) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: msg
+        })
+    }
+
+    function error_alert_reloaded(msg) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: msg
+        }).then((res) => {
+            window.location.reload()
+        })
+    }
+
+    function success_alert(msg) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: msg
+        })
+    }
+
+    function success_alert_reloaded(msg) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: msg
+        }).then((res) => {
+            window.location.reload()
+        })
+    }
+    </script>
     <?php
         if(isset($js)){
             foreach($js as $j){

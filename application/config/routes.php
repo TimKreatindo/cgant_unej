@@ -52,3 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//routing menu list di bagian admin
+$route['admin'] = 'admin/view/index';
+$route['admin/master_jurusan'] = 'admin/view/master_jurusan';
+$route['admin/master_user'] = 'admin/view/master_user';
+
+
+//routing action di menu master jurusan
+$route['admin/validasi_jurusan']['POST'] = 'admin/ajax_master_jurusan/validasi_jurusan';
+$route['admin/delete_jurusan']['POST'] = 'admin/ajax_master_jurusan/delete_jurusan';
