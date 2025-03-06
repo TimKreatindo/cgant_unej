@@ -62,3 +62,9 @@ $route['admin/master_user'] = 'admin/view/master_user';
 //routing action di menu master jurusan
 $route['admin/validasi_jurusan']['POST'] = 'admin/ajax_master_jurusan/validasi_jurusan';
 $route['admin/delete_jurusan']['POST'] = 'admin/ajax_master_jurusan/delete_jurusan';
+
+
+//routing action di menu master user
+$route['admin/validasi-user']['POST'] = 'admin/ajax_master_user/validasi_user';
+$route['admin/datatable-master-user']['POST'] = 'admin/ajax_master_user/datatable';
+$route['admin/act-master-user']['POST'] = 'admin/ajax_master_user/action';

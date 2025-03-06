@@ -462,7 +462,9 @@ $config['csrf_token_name'] = 'c_name';
 $config['csrf_cookie_name'] = 'c_cookie';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_exclude_uris'] = array(
+    'admin/datatable-master-user'
+);
 
 /*
 |--------------------------------------------------------------------------

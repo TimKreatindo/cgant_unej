@@ -12,3 +12,9 @@ function json_output($data, $status){
     $t->output->set_status_header($status);
     $t->output->set_output(json_encode($data));
 }
+
+function get_token(){
+    $t = get_instance();
+    $token = $t->security->get_csrf_hash();
+    return $token;
+}

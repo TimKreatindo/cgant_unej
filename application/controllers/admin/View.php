@@ -24,7 +24,8 @@ class View extends CI_Controller {
         $data = [
             'title' => 'Master User',
             'view' => 'admin/master_user',
-            'data' => $this->db->get('jurusan')->result(),
+            'jurusan' => $this->db->get('jurusan')->result(),
+            'role' => $this->db->get('user_role')->result(),
             'js' => ['master_user.js'],
         ];
         $this->load->view('admin/template', $data);

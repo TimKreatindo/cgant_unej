@@ -29,6 +29,8 @@
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="<?= base_url('template/admin') ?>/css/style.css" id="main-style-link">
     <link rel="stylesheet" href="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.css') ?>">
+    <link rel="stylesheet"
+        href="<?= base_url('template/client/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') ?>">
 </head>
 
 <body data-pc-preset="preset-1" data-pc-sidebar-theme="dark" data-pc-header-theme="light" data-pc-sidebar-caption="true"
@@ -70,6 +72,9 @@
                         <ul class="pc-submenu">
                             <li class="pc-item"><a class="pc-link" href="<?= base_url('admin/master_jurusan') ?>">Master
                                     Jurusan</a>
+                            </li>
+                            <li class="pc-item"><a class="pc-link" href="<?= base_url('admin/master_user') ?>">Master
+                                    User</a>
                             </li>
                         </ul>
                     </li>
@@ -175,6 +180,10 @@
 
     <script src="<?= base_url('template/client') ?>/extensions/jquery/jquery.min.js"></script>
     <script src="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.js') ?>"></script>
+    <script src="<?= base_url('template/client/extensions/datatables.net/js/jquery.dataTables.js') ?>">
+    </script>
+    <script src="<?= base_url('template/client/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') ?>">
+    </script>
     <script>
     const base_url = '<?= base_url() ?>'
 

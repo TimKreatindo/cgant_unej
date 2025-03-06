@@ -31,7 +31,7 @@ class Migration_add_user extends CI_Migration {
                         ),
                         'password' => array(
                                 'type' => 'VARCHAR',
-                                'constraint' => '50',
+                                'constraint' => '255',
                         ),
                         'image' => array(
                                 'type' => 'VARCHAR',
