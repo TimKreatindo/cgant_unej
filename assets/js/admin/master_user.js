@@ -98,7 +98,12 @@ function load_data() {
 			url: base_url + "admin/datatable-master-user",
 			type: "POST",
 		},
-		columnDefs: [{}],
+		columnDefs: [
+			{
+				target: [0, 1, 2, 3, 4, 5, 6, 7],
+				classname: "text-center text-nowrap",
+			},
+		],
 		ordering: false,
 		iDisplayLength: 10,
 		autoWidth: false,

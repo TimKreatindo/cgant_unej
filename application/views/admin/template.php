@@ -134,7 +134,8 @@
                                                         class="fas fa-key"></i> <span>Edit Password</span>
                                                 </span></a>
 
-                                            <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i
+                                            <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><span
+                                                    class="d-flex align-items-center"><i
                                                         class="fas fa-sign-out-alt"></i> <span>Keluar</span>
                                                 </span></a>
 
