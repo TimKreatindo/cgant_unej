@@ -31,6 +31,12 @@
     <link rel="stylesheet" href="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.css') ?>">
     <link rel="stylesheet"
         href="<?= base_url('template/client/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/lib/style.css') ?>">
+    <style>
+    .list_uploaded {
+        border: 1px solid #a6a5c7;
+    }
+    </style>
 </head>
 
 <body data-pc-preset="preset-1" data-pc-sidebar-theme="dark" data-pc-header-theme="light" data-pc-sidebar-caption="true"
@@ -78,6 +84,21 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/iku') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">IKU</span>
+                        </a>
+                    </li>
+
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/kerjasama') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">Kerjasama</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -103,9 +124,10 @@
                     <li class="dropdown pc-h-item header-user-profile">
                         <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false"><img
-                                src="../assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar"> <span
-                                class="ms-2"><span class="user-name">Joseph William</span> <span
-                                    class="user-desc">Administrator</span></span></a>
+                                src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image"
+                                class="user-avtar"> <span class="ms-2"><span
+                                    class="user-name"><?= word_limiter($user->nama, 4) ?></span>
+                                <span class="user-desc"><?= $user->nama_role ?></span></span></a>
                         <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
                             <div class="dropdown-header d-flex align-items-center justify-content-between">
                                 <h4 class="m-0">Profile</h4>
@@ -116,12 +138,12 @@
                                     <ul class="list-group list-group-flush w-100">
                                         <li class="list-group-item">
                                             <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0"><img src="../assets/images/user/avatar-2.jpg"
+                                                <div class="flex-shrink-0"><img
+                                                        src="<?= base_url('assets/img/profile/' . $user->image) ?>"
                                                         alt="user-image" class="wid-50 rounded-circle"></div>
                                                 <div class="flex-grow-1 mx-3">
-                                                    <h5 class="mb-0">Carson Darrin</h5>
-                                                    <a class="text-sm link-secondary"
-                                                        href="mailto:carson.darrin@company.io">carson.darrin@company.io</a>
+                                                    <h5 class="mb-0"><?= $user->nama ?></h5>
+                                                    <a class="text-sm link-secondary" href="#!"><?= $user->nip ?></a>
                                                 </div>
                                             </div>
                                         </li>
@@ -185,6 +207,7 @@
     </script>
     <script src="<?= base_url('template/client/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') ?>">
     </script>
+    <script src="<?= base_url('assets/js/file.js') ?>"></script>
     <script>
     const base_url = '<?= base_url() ?>'
 

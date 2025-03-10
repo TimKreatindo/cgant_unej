@@ -25,6 +25,7 @@ class View extends CI_Controller {
             'view' => 'admin/master_jurusan',
             'data' => $this->db->get('jurusan')->result(),
             'js' => ['master_jurusan.js'],
+            'user' => $this->user
         ];
         $this->load->view('admin/template', $data);
     }
@@ -36,7 +37,19 @@ class View extends CI_Controller {
             'jurusan' => $this->db->get('jurusan')->result(),
             'role' => $this->db->get('user_role')->result(),
             'js' => ['master_user.js'],
+            'user' => $this->user
         ];
+        $this->load->view('admin/template', $data);
+    }
+
+    public function kerjasama(){
+        $data = [
+            'title' => 'Kerjasama',
+            'view' => 'admin/sh_kerjasama',
+            'user' => $this->user,
+            'js' => ['sh_kerjasama.js']
+        ];
+        
         $this->load->view('admin/template', $data);
     }
 }

@@ -58,6 +58,11 @@ $route['validasi_login']['POST'] = 'login/validation';
 $route['admin'] = 'admin/view/index';
 $route['admin/master_jurusan'] = 'admin/view/master_jurusan';
 $route['admin/master_user'] = 'admin/view/master_user';
+$route['admin/kerjasama'] = 'admin/view/kerjasama';
+
+
+//rounting menu list bagian client
+$route['client'] = 'client/view/index';
 
 
 //routing action di menu master jurusan
@@ -69,3 +74,8 @@ $route['admin/delete_jurusan']['POST'] = 'admin/ajax_master_jurusan/delete_jurus
 $route['admin/validasi-user']['POST'] = 'admin/ajax_master_user/validasi_user';
 $route['admin/datatable-master-user']['POST'] = 'admin/ajax_master_user/datatable';
 $route['admin/act-master-user']['POST'] = 'admin/ajax_master_user/action';
+
+//routing action di menu kerjasama
+$route['admin/validasi_kerjasama']['POST'] = 'admin/ajax_kerjasama/validasi_kerjasama';
+$route['admin/datatable-kerjasama']['POST'] = 'admin/ajax_kerjasama/datatable_kerjasama';
+$route['admin/get-kerjasama-row']['POST'] = 'admin/ajax_kerjasama/get_kerjasama_row';

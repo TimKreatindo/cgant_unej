@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> | CGANT</title>
+    <title><?= $title ?> | CGANT</title>
 
     <link rel="icon" href="<?= base_url('assets/img/web/logo.png') ?>" type="image/x-icon">
 
     <link rel="stylesheet" href="<?= base_url('template/client/') ?>compiled/css/app.css">
     <link rel="stylesheet" href="<?= base_url('template/client/') ?>compiled/css/app-dark.css">
     <link rel="stylesheet" href="<?= base_url('template/client/') ?>compiled/css/iconly.css">
+
+    <link rel="stylesheet" href="<?= base_url('template/admin') ?>/fonts/fontawesome.css">
+    <link rel="stylesheet" href="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.css') ?>">
+    <link rel="stylesheet"
+        href="<?= base_url('template/client/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') ?>">
 </head>
 
 <body>
@@ -21,7 +26,7 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo w-100">
-                            <a href=""><img width="70px" style="height: 60px"
+                            <a href=""><img width="65px" style="height: 60px"
                                     src="<?= base_url('assets/img/web/logo.png') ?>" alt="Logo"></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -53,17 +58,28 @@
                     </div>
                 </div>
                 <div class="sidebar-menu">
+
+                    <div class="row g-1 align-items-center px-2 py-3" style="border: 1px solid #e0e0e0;">
+                        <div class="col-2">
+                            <img src="<?= base_url('assets/img/profile/') . $user->image ?>" alt="avatar" class="w-100">
+                        </div>
+                        <div class="col-10">
+                            <strong><?= word_limiter($user->nama, 4) ?></strong> <br>
+                            <small><?= $user->nip ?></small>
+                        </div>
+                    </div>
+
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item active ">
-                            <a href="index.html" class='sidebar-link'>
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('client') ?>" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  has-sub">
+                        <!-- <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-journal-check"></i>
                                 <span>Form Validation</span>
@@ -77,6 +93,14 @@
                                 </li>
 
                             </ul>
+                        </li> -->
+
+
+                        <li class="sidebar-item ">
+                            <a href="<?= base_url('login/logout') ?>" class='sidebar-link'>
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Log out</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -112,8 +136,13 @@
 
 
     <script src="<?= base_url('template/client/') ?>compiled/js/app.js"></script>
-
     <script src="<?= base_url('template/client') ?>/extensions/jquery/jquery.min.js"></script>
+    <script src="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.js') ?>"></script>
+    <script src="<?= base_url('template/client/extensions/datatables.net/js/jquery.dataTables.js') ?>">
+    </script>
+    <script src="<?= base_url('template/client/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') ?>">
+    </script>
+    <script src="<?= base_url('assets/js/file.js') ?>"></script>
     <?php
         if(isset($js)){
             foreach($js as $j){
@@ -121,6 +150,16 @@
             }
         }
     ?>
+    <script>
+    $(document).ready(function() {
+        var currentUrl = window.location.href;
+        $('.menu .sidebar-link').each(function() {
+            if (this.href === currentUrl) {
+                $(this).parent('.sidebar-item').addClass('active');
+            }
+        });
+    });
+    </script>
 
 </body>
 

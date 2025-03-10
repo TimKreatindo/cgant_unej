@@ -33,4 +33,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 .env
 assets/img/profile/*
-assets/upload/*
+assets/upload/kegiatan-tridharma/*
+assets/upload/kerjasama/*
