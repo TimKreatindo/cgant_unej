@@ -99,6 +99,27 @@
                         </a>
                     </li>
 
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/kegiatan-tridharma') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">Kegiatan Tridharma</span>
+                        </a>
+                    </li>
+
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/haki') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">HAKI</span>
+                        </a>
+                    </li>
+
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/hibah-penelitian') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">Hibah Penelitian</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

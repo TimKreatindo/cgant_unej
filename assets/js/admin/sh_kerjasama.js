@@ -87,8 +87,8 @@ $(document).on("submit", "#form-action", function (e) {
 		confirmButtonText: "Yes",
 		denyButtonText: `No`,
 	}).then((res) => {
-		loading_animation();
 		if (res.isConfirmed) {
+			loading_animation();
 			$.ajax({
 				url: $(this).attr("action"),
 				data: $(this).serialize(),

@@ -130,4 +130,9 @@ class App_model extends CI_Model {
         }
         json_output($output, 200);
     }
+
+    public function get_where_data($table, $where, $param){
+        $data = $this->db->where($where, $param)->get($table);
+        return $data;
+    }
 }

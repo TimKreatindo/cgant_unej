@@ -465,7 +465,8 @@ $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array(
     'admin/datatable-master-user',
     'admin/datatable-kerjasama',
-    'admin/get-kerjasama-row'
+    'admin/get-kerjasama-row',
+    'admin/datatable-tridharma'
 );
 
 /*

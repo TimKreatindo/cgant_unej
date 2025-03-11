@@ -59,11 +59,10 @@ $route['admin'] = 'admin/view/index';
 $route['admin/master_jurusan'] = 'admin/view/master_jurusan';
 $route['admin/master_user'] = 'admin/view/master_user';
 $route['admin/kerjasama'] = 'admin/view/kerjasama';
+$route['admin/kegiatan-tridharma'] = 'admin/view/kegiatan_tridharma';
 
 
-//rounting menu list bagian client
-$route['client'] = 'client/view/index';
-$route['client/kegiatan-tridharma'] = 'client/view/kegiatan_tridharma';
+
 
 //routing action di menu master jurusan
 $route['admin/validasi_jurusan']['POST'] = 'admin/ajax_master_jurusan/validasi_jurusan';
@@ -80,6 +79,11 @@ $route['admin/validasi_kerjasama']['POST'] = 'admin/ajax_kerjasama/validasi_kerj
 $route['admin/datatable-kerjasama']['POST'] = 'admin/ajax_kerjasama/datatable_kerjasama';
 $route['admin/get-kerjasama-row']['POST'] = 'admin/ajax_kerjasama/get_kerjasama_row';
 
+//routing action di menu kegiatan tridharma
+$route['admin/datatable-tridharma']['POST'] = 'admin/ajax_client/datatable_tridharma';
+$route['admin/detail-tridharma']['POST'] = 'admin/ajax_client/detail_tridharma';
+
+
 
 
 // 
@@ -89,5 +93,13 @@ $route['admin/get-kerjasama-row']['POST'] = 'admin/ajax_kerjasama/get_kerjasama_
 // 
 // 
 //
+//
+
+//rounting menu list bagian client
+$route['client'] = 'client/view/index';
+$route['client/kegiatan-tridharma'] = 'client/view/kegiatan_tridharma';
+
+
+
 //routing action di menu kegiatan tridharma 
 $route['client/validasi-tridharma']['POST'] = 'client/ajax_kegiatan_tridharma/validation';
