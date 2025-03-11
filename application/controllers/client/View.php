@@ -10,7 +10,20 @@ class View extends CI_Controller {
     public function index(){
         $data = [
             'title' => 'Dashboard',
-            'user' => get_user()
+            'user' => get_user(),
+            'view' => 'client/dashboard'
+        ];
+        $this->load->view('client/template', $data);
+    }
+
+
+    public function kegiatan_tridharma(){
+        $data = [
+            'title' => 'Kegiatan Tridharma',
+            'user' => get_user(),
+            'view' => 'client/kegiatan_tridharma',
+            'js' => ['kegiatan_tridharma.js'],
+            'data' => $this->client->get_kegiatan_tridharma()->result()
         ];
         $this->load->view('client/template', $data);
     }

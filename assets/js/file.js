@@ -81,3 +81,7 @@ function removeFile(index) {
 	// Perbarui daftar file yang ditampilkan
 	fileInput.dispatchEvent(new Event("change"));
 }
+
+$(document).on("click", ".delete_file_uploaded", function () {
+	$(this).closest(".row").remove();
+});

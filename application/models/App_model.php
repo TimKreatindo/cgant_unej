@@ -54,7 +54,7 @@ class App_model extends CI_Model {
     }
 
 
-    private function _diff_array_bukti_file($from_input, $from_db){
+    public function _diff_array_bukti_file($from_input, $from_db){
         //get filename from new file
         $ofu = [];
         $a = 0; 
@@ -74,5 +74,60 @@ class App_model extends CI_Model {
         }
         
         return $filtered_array;
+    }
+
+
+    public function input_data($table, $data){
+        $this->db->insert($table, $data);
+        if($this->db->affected_rows() > 0){
+            $output = [
+                'status' => true,
+                'msg' => 'Data berhasil disimpan',
+                'token' => get_token()
+            ];
+        } else {
+            $output = [
+                'status' => false,
+                'msg' => 'Data gagal disimpan',
+                'token' => get_token()
+            ];
+        }
+        json_output($output, 200);
+    }
+
+    public function update_data($table, $data, $where, $param){
+        $this->db->where($where, $param)->update($table, $data);
+        if($this->db->affected_rows() > 0){
+            $output = [
+                'status' => true,
+                'msg' => 'Data berhasil diubah',
+                'token' => get_token()
+            ];
+        } else {
+            $output = [
+                'status' => false,
+                'msg' => 'Data gagal diubah',
+                'token' => get_token()
+            ];
+        }
+        json_output($output, 200);
+    }
+
+    public function delete_data($table, $where, $param){
+        $this->db->where($where, $param)->delete($table);
+        if($this->db->affected_rows() > 0){
+            $output = [
+                'status' => true,
+                'msg' => 'Data berhasil dihapus',
+                'token' => get_token()
+            ];
+        } else {
+            $output = [
+                'status' => false,
+                'msg' => 'Data gagal dihapus',
+                'token' => get_token()
+            ];
+        }
+        json_output($output, 200);
     }
 }

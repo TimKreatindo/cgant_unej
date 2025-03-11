@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.css') ?>">
     <link rel="stylesheet"
         href="<?= base_url('template/client/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') ?>">
+
+
+    <style>
+    .list_uploaded {
+        border: 1px solid #a6a5c7;
+    }
+    </style>
 </head>
 
 <body>
@@ -95,6 +102,13 @@
                             </ul>
                         </li> -->
 
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('client/kegiatan-tridharma') ?>" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Kegiatan Tridharma</span>
+                            </a>
+                        </li>
+
 
                         <li class="sidebar-item ">
                             <a href="<?= base_url('login/logout') ?>" class='sidebar-link'>
@@ -103,10 +117,14 @@
                             </a>
                         </li>
                     </ul>
+
+                    <div class="text-center">
+                        <small>&copy 2025 JTeam</small>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="main">
+        <div id="main" style="height: 100vh;">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
@@ -114,21 +132,13 @@
             </header>
 
             <div class="page-heading">
-                <h3>Profile Statistics</h3>
+                <h3><?= $title ?></h3>
             </div>
             <div class="page-content">
                 <section class="row">
-
+                    <?php $this->load->view($view) ?>
                 </section>
             </div>
-
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p> &copy; 2025 team</p>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
     <script src="<?= base_url('template/client/') ?>static/js/components/dark.js"></script>
@@ -141,6 +151,63 @@
     <script src="<?= base_url('template/client/extensions/datatables.net/js/jquery.dataTables.js') ?>">
     </script>
     <script src="<?= base_url('template/client/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') ?>">
+    </script>
+    <script>
+    const base_url = '<?= base_url() ?>'
+
+    function loading_animation() {
+        Swal.fire({
+            title: 'Loading..',
+            html: 'Please wait..',
+            timerProgressBar: true,
+            draggable: true,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading()
+            },
+        })
+    }
+
+    function regenerate_token(token) {
+        const c_name = '<?= $this->security->get_csrf_token_name() ?>'
+        $('input[name="' + c_name + '"]').val(token)
+    }
+
+    function error_alert(msg) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: msg
+        })
+    }
+
+    function error_alert_reloaded(msg) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: msg
+        }).then((res) => {
+            window.location.reload()
+        })
+    }
+
+    function success_alert(msg) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: msg
+        })
+    }
+
+    function success_alert_reloaded(msg) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: msg
+        }).then((res) => {
+            window.location.reload()
+        })
+    }
     </script>
     <script src="<?= base_url('assets/js/file.js') ?>"></script>
     <?php
