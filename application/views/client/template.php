@@ -104,10 +104,38 @@
 
                         <li class="sidebar-item">
                             <a href="<?= base_url('client/kegiatan-tridharma') ?>" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="far fa-folder"></i>
                                 <span>Kegiatan Tridharma</span>
                             </a>
                         </li>
+
+                        <!-- <li class="sidebar-item">
+                            <a href="<?= base_url('client/haki') ?>" class='sidebar-link'>
+                                <i class="far fa-folder"></i>
+                                <span>HAKI</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('client/hibah-penelitian') ?>" class='sidebar-link'>
+                                <i class="far fa-folder"></i>
+                                <span>Hibah Penelitian</span>
+                            </a>
+                        </li> -->
+
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('client/seminar-webinar') ?>" class='sidebar-link'>
+                                <i class="far fa-folder"></i>
+                                <span>Seminar/Webinar</span>
+                            </a>
+                        </li>
+
+                        <!-- <li class="sidebar-item">
+                            <a href="<?= base_url('client/hibah-pengabdian') ?>" class='sidebar-link'>
+                                <i class="far fa-folder"></i>
+                                <span>Hibah Pengabdian</span>
+                            </a>
+                        </li> -->
 
 
                         <li class="sidebar-item ">

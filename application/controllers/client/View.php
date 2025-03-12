@@ -27,4 +27,15 @@ class View extends CI_Controller {
         ];
         $this->load->view('client/template', $data);
     }
+
+    public function seminar(){
+        $data = [
+            'title' => 'Seminar/Webinar',
+            'user' => get_user(),
+            'view' => 'client/seminar',
+            'js' => ['seminar.js'],
+            'data' => $this->client->get_seminar()->result()
+        ];
+        $this->load->view('client/template', $data);
+    }
 }

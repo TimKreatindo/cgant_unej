@@ -98,8 +98,12 @@ $route['admin/detail-tridharma']['POST'] = 'admin/ajax_client/detail_tridharma';
 //rounting menu list bagian client
 $route['client'] = 'client/view/index';
 $route['client/kegiatan-tridharma'] = 'client/view/kegiatan_tridharma';
+$route['client/seminar-webinar'] = 'client/view/seminar';
 
 
 
 //routing action di menu kegiatan tridharma 
 $route['client/validasi-tridharma']['POST'] = 'client/ajax_kegiatan_tridharma/validation';
+
+//routing action di menu seminar
+$route['client/validasi-seminar']['POST'] = 'client/ajax_seminar/validation';

@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH')or exit('No direct script access allowed');
+date_default_timezone_set('Asia/Jakarta');
+
 class Ajax_master_jurusan extends CI_Controller {
     public function validasi_jurusan(){
         cek_ajax();
