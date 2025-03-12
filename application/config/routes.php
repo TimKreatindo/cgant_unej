@@ -99,6 +99,7 @@ $route['admin/detail-tridharma']['POST'] = 'admin/ajax_client/detail_tridharma';
 $route['client'] = 'client/view/index';
 $route['client/kegiatan-tridharma'] = 'client/view/kegiatan_tridharma';
 $route['client/seminar-webinar'] = 'client/view/seminar';
+$route['client/rekognisi'] = 'client/view/rekognisi';
 
 
 
@@ -107,3 +108,6 @@ $route['client/validasi-tridharma']['POST'] = 'client/ajax_kegiatan_tridharma/va
 
 //routing action di menu seminar
 $route['client/validasi-seminar']['POST'] = 'client/ajax_seminar/validation';
+
+//routing action di menu rekognasi
+$route['client/validasi-rekognisi']['POST'] = 'client/ajax_rekognisi/validation';

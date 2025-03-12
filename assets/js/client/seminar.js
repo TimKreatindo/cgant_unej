@@ -204,7 +204,7 @@ $(".act-edit").submit(function (e) {
 					}
 
 					$("#staticBackdrop").modal("show");
-					$("#staticBackdrop .modal-title").html("Tambah Data");
+					$("#staticBackdrop .modal-title").html("Edit Data");
 
 					$("#id_modal").val(main_data.id);
 					$("#act_modal").val("edit");

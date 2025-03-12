@@ -1,5 +1,5 @@
 <div class="col-12">
-    <div class="card shadown">
+    <div class="card">
         <div class="card-body table-responsive">
 
             <button class="btn btn-sm btn-primary mb-3" onclick="add_data()"><i class="fa fa-plus"></i></button>
@@ -8,56 +8,46 @@
                 <thead>
                     <tr class="table-secondary">
                         <th>#</th>
-                        <th>Tanggal Kegiatan</th>
+                        <th>Jenis Rekognisi</th>
                         <th>Jenis Kegiatan</th>
-                        <th>Tempat Kegiatan</th>
+                        <th>Tingkat Rekognisi</th>
+                        <th>Penyelenggara</th>
+                        <th>Tahun</th>
                         <th>Bukti</th>
                         <th><i class="fa fa-cogs"></i></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i=1; 
-                    foreach($data as $d){ 
-                        $decode_date = json_decode($d->tanggal_kegiatan);
-                        $start_date = $decode_date->start;
-                        $end_date = $decode_date->end;
-                        if($start_date == $end_date){
-                            $tgl = date_create($start_date);
-                            $show_date = date_format($tgl, 'd F Y');
-                        } else {
-                            $tgl_start = date_create($start_date);
-                            $tgl_end = date_create($end_date);
-                            $show_date = date_format($tgl_start, 'd F Y') . ' - ' . date_format($tgl_end, 'd F Y');
-                        }
-
-
+                    <?php $i=1; foreach($data as $d){ 
                         $decode_bukti = json_decode($d->bukti);
                         if($decode_bukti->type == 'file'){
                             $li_bukti = '';
                             foreach($decode_bukti->data as $db){
-                                $li_bukti .= '<li><a href="'. base_url('assets/upload/kegiatan-tridharma/' . $db->file_name) . '" target="_blank">' . $db->ori_name . '</a></li>';
+                                $li_bukti .= '<li><a href="'. base_url('assets/upload/rekognisi/' . $db->file_name) . '" target="_blank">' . $db->ori_name . '</a></li>';
                             }
                             $bukti = '<ul>' . $li_bukti . '</ul>';
                         } else {
                             $bukti = '<a href="'. $decode_bukti->url . '" target="_blank">Link</a>';
-                        }
-
+                        }    
                     ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= $show_date ?></td>
+                        <td><?= $d->jenis_rekognisi ?></td>
                         <td><?= $d->jenis_kegiatan ?></td>
-                        <td><?= $d->tempat_kegiatan ?></td>
+                        <td><?= $d->level ?></td>
+                        <td><?= $d->penyelenggara ?></td>
+                        <td><?= $d->tahun ?></td>
                         <td><?= $bukti ?></td>
                         <td>
-                            <?= form_open('client/validasi-tridharma', 'class="btn_get_edit"') ?>
+                            <?= form_open('client/validasi-rekognisi', 'class="act-edit"') ?>
                             <input type="hidden" name="id" value="<?= $d->id_encode ?>">
-                            <input type="hidden" name="act" value="get_edit">
+                            <input type="hidden" name="act" value="get-edit">
                             <button class="btn btn-sm btn-primary w-100 my-1" type="submit"><i
                                     class="fa fa-edit"></i></button>
                             <?= form_close() ?>
 
-                            <?= form_open('client/validasi-tridharma', 'class="delete_data"') ?>
+
+                            <?= form_open('client/validasi-rekognisi', 'class="act-delete"') ?>
                             <input type="hidden" name="id" value="<?= $d->id_encode ?>">
                             <input type="hidden" name="act" value="delete">
                             <button class="btn btn-sm btn-danger w-100 my-1" type="submit"><i
@@ -68,54 +58,76 @@
                     <?php } ?>
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>
 
-
+<!-- Modal -->
 <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header bg-primary ">
-                <h1 class="modal-title text-white fs-5" id="staticBackdropLabel">Modal title</h1>
-                <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-primary">
+                <h1 class="modal-title text-light fs-5" id="staticBackdropLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <?= form_open('client/validasi-tridharma', 'id="form_modal"') ?>
+            <?= form_open('client/validasi-rekognisi', 'id="form-modal"') ?>
             <div class="modal-body">
                 <input type="hidden" name="id" id="id_modal">
                 <input type="hidden" name="act" id="act_modal">
 
                 <div class="form-group my-3">
-                    <label><b>Tanggal Kegiatan</b></label>
-                    <div class="row g-1">
-                        <div class="col-6">
-                            <label>Dari Tanggal</label>
-                            <input type="date" name="start_date" id="start_date" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label>Sampai Tanggal</label>
-                            <input type="date" name="end_date" id="end_date" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="form-group my-3">
-                    <label><b>Jenis Kegiatan</b></label>
-                    <select name="jenis_kegiatan" id="jenis_kegiatan" class="form-control">
+                    <label><b>Tahun</b></label>
+                    <select name="year" id="year" class="form-control" required>
                         <option value="">--pilih--</option>
-                        <option value="Seminar Internasional">Seminar Internasional</option>
-                        <option value="Seminar Nasional">Seminar Nasional</option>
-                        <option value="Workshop">Workshop</option>
+                        <?php
+                            $now_year = date('Y');
+                            $reverse = $now_year - 15;
+                            for($i = $reverse; $i <= $now_year; $i++){
+                                echo '<option value="'.$i.'">'.$i.'</option>';
+                            }
+                        ?>
                     </select>
                 </div>
 
 
                 <div class="form-group my-3">
-                    <label><b>Tempat Kegiatan</b></label>
-                    <textarea name="tempat_kegiatan" id="tempat_kegiatan" class="form-control" rows="3"></textarea>
+                    <label><b>Jenis Rekognisi</b></label>
+                    <select name="jenis_rekognisi" id="jenis_rekognisi" class="form-control" required>
+                        <option value="">--pilih--</option>
+                        <?php
+                            foreach($rekognisi as $re){
+                                echo '<option value="'.$re.'">'.$re.'</option>';
+                            }
+                        ?>
+                    </select>
+                </div>
+
+
+                <div class="form-group my-3">
+                    <label><b>Jenis Kegiatan</b></label>
+                    <select name="jenis_kegiatan" id="jenis_kegiatan" class="form-control" required>
+                        <option value="">--pilih--</option>
+                        <?php
+                            foreach($kegiatan as $re){
+                                echo '<option value="'.$re.'">'.$re.'</option>';
+                            }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-group my-3">
+                    <label><b>Tingkat Rekognisi</b></label>
+                    <select name="tingkat_rekognisi" id="tingkat_rekognisi" class="form-control" required>
+                        <option value="">--pilih--</option>
+                        <option value="Nasional">Nasional</option>
+                        <option value="Internasional">Internasional</option>
+                    </select>
+                </div>
+
+                <div class="form-group my-3">
+                    <label><b>Penyelenggara</b></label>
+                    <textarea name="penyelenggara" id="penyelenggara" class="form-control" rows="3" required></textarea>
                 </div>
 
 
@@ -162,6 +174,7 @@
                     <div id="container_preview_bukti">
                     </div>
                 </div>
+
 
             </div>
             <div class="modal-footer">

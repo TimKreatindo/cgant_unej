@@ -32,4 +32,17 @@ class Client_model extends CI_Model {
 
         return $this->db->get();
     }
+
+    public function get_rekognisi($id = null){
+        $this->db->select('sh_rekognisi.*, sha1(sh_rekognisi.id) as id_encode')
+        ->from('sh_rekognisi')
+        ->where('id_user', $this->user->id);
+
+        if($id){
+            $this->db->where('sha1(sh_rekognisi.id)', $id);
+        }
+        $this->db->order_by('sh_rekognisi.create_at', 'desc');
+
+        return $this->db->get();
+    }
 }

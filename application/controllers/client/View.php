@@ -38,4 +38,23 @@ class View extends CI_Controller {
         ];
         $this->load->view('client/template', $data);
     }
+
+    public function rekognisi(){
+        $jenis_rekognisi = [
+            'Reviewer', 'Pembicara', 'Editor', 'Juri', 'Penghargaan'
+        ];
+        $jenis_kegiatan = ['Seminar', 'Lomba Ilmiah', 'Presentasi Ilmiah', 'Jurnal'];
+
+        
+        $data = [
+            'title' => 'Rekognisi',
+            'user' => get_user(),
+            'view' => 'client/rekognisi',
+            'js' => ['rekognisi.js'],
+            'data' => $this->client->get_rekognisi()->result(),
+            'rekognisi' => $jenis_rekognisi,
+            'kegiatan' => $jenis_kegiatan
+        ];
+        $this->load->view('client/template', $data);
+    }
 }
