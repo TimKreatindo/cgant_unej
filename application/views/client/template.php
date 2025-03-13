@@ -144,6 +144,13 @@
                             </a>
                         </li>
 
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('client/sertifikat-kompetensi') ?>" class='sidebar-link'>
+                                <i class="far fa-folder"></i>
+                                <span>Sertifikat Kompetensi</span>
+                            </a>
+                        </li>
+
 
                         <li class="sidebar-item ">
                             <a href="<?= base_url('login/logout') ?>" class='sidebar-link'>

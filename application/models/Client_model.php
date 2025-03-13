@@ -45,4 +45,17 @@ class Client_model extends CI_Model {
 
         return $this->db->get();
     }
+
+    public function get_sertifikat($id = null){
+        $this->db->select('sh_sertifikat_kompetensi.*, sha1(sh_sertifikat_kompetensi.id) as id_encode')
+        ->from('sh_sertifikat_kompetensi')
+        ->where('id_user', $this->user->id);
+
+        if($id){
+            $this->db->where('sha1(sh_sertifikat_kompetensi.id)', $id);
+        }
+        $this->db->order_by('sh_sertifikat_kompetensi.create_at', 'desc');
+
+        return $this->db->get();
+    }
 }

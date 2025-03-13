@@ -2,10 +2,29 @@ $(document).ready(function () {
 	$("#main-table").dataTable();
 });
 
-$("#tipe_bukti").change(function () {
-	let vall = $(this).val();
-	check_tipe_bukti(vall);
-});
+function add_data() {
+	$("#staticBackdrop").modal("show");
+	$("#staticBackdrop .modal-title").html("Tambah Data");
+
+	$("#id_modal").val("");
+	$("#act_modal").val("add");
+
+	$("#year").val("");
+	$("#jenis_sertifikat").val("");
+	$("#level").val("");
+	$("#bidang").val("");
+	$("#lembaga").val("");
+
+	check_tipe_bukti(null, "add");
+
+	$("#tipe_bukti").val("");
+	$("#bukti_url").val("");
+	$("#bukti_files").val("");
+
+	$("#container_file").html("");
+	$("#preview_bukti").addClass("d-none");
+	$("#container_preview_bukti").html("");
+}
 
 $("#form-modal").submit(function (e) {
 	e.preventDefault();
@@ -52,102 +71,6 @@ $("#form-modal").submit(function (e) {
 					}
 				} else {
 					success_alert_reloaded(d.msg);
-				}
-			}, 200);
-		},
-	});
-});
-
-$(".act-detail").submit(function (e) {
-	e.preventDefault();
-	loading_animation();
-	$.ajax({
-		url: $(this).attr("action"),
-		data: $(this).serialize(),
-		type: "POST",
-		dataType: "JSON",
-		error: function (xhr, status, error) {
-			setTimeout(() => {
-				Swal.close();
-				error_alert_reloaded(error);
-			}, 200);
-		},
-		success: function (d) {
-			regenerate_token(d.token);
-			setTimeout(() => {
-				Swal.close();
-
-				if (d.status == false) {
-					erorr_alert(d.msg);
-				} else {
-					let main_data = d.data;
-					let bukti = d.data.bukti;
-					let html_bukti = "";
-					const base_file = base_url + "assets/upload/seminar/";
-
-					if (bukti.type == "file") {
-						let main_bukti = bukti.data;
-						let li = "";
-						for (let i = 0; i < main_bukti.length; i++) {
-							li +=
-								'<li> <a href="' +
-								base_file +
-								main_bukti[i].file_name +
-								'" target="_blank"> ' +
-								main_bukti[i].ori_name +
-								" </a> </li>";
-						}
-						html_bukti = "<ul>" + li + "</ul>";
-					} else {
-						html_bukti =
-							'<a target="_blank" href="' +
-							bukti.url +
-							'">' +
-							bukti.url +
-							"</a>";
-					}
-
-					let html = `<table class="table table-bordered table-sm">
-                                    <tr>
-                                        <th>Tanggal Kegiatan</th>
-                                        <td>${main_data.tanggal_kegiatan}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Jenis Kegiatan</th>
-                                        <td>${main_data.jenis_kegiatan}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Jenis Partisipasi</th>
-                                        <td>${main_data.jenis_partisipasi}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Judul Kegiatan</th>
-                                        <td>${main_data.judul_kegiatan}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Level</th>
-                                        <td>${main_data.tingkat}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Penyelenggara</th>
-                                        <td>${main_data.penyelenggara}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Dibuat pada</th>
-                                        <td>${main_data.create_at}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Terakhir di update</th>
-                                        <td>${main_data.last_update}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Bukti</th>
-                                        <td>${html_bukti}</td>
-                                    </tr>
-                                </table>`;
-
-					$("#modalDetail").modal("show");
-					$("#modalDetail .modal-body").html(html);
 				}
 			}, 200);
 		},
@@ -208,14 +131,12 @@ $(".act-edit").submit(function (e) {
 
 					$("#id_modal").val(main_data.id);
 					$("#act_modal").val("edit");
-					$("#start_date").val(main_data.start_date);
-					$("#end_date").val(main_data.end_date);
-					$("#jenis_kegiatan").val(main_data.jenis_kegiatan);
-					$("#jenis_partisipasi").val(main_data.jenis_partisipasi);
 
-					$("#judul_kegiatan").val(main_data.judul_kegiatan);
-					$("#penyelenggara").val(main_data.penyelenggara);
-					$("#level").val(main_data.tingkat);
+					$("#year").val(main_data.tahun);
+					$("#jenis_sertifikat").val(main_data.jenis);
+					$("#level").val(main_data.level);
+					$("#bidang").val(main_data.bidang);
+					$("#lembaga").val(main_data.lembaga);
 
 					$("#tipe_bukti").val(bukti.type);
 					check_tipe_bukti(bukti.type, "edit");
@@ -265,30 +186,14 @@ $(".act-delete").submit(function (e) {
 	});
 });
 
-function add_data() {
-	$("#staticBackdrop").modal("show");
-	$("#staticBackdrop .modal-title").html("Tambah Data");
+//
+//
+//
 
-	$("#id_modal").val("");
-	$("#act_modal").val("add");
-	$("#start_date").val("");
-	$("#end_date").val("");
-	$("#jenis_kegiatan").val("");
-	$("#jenis_partisipasi").val("");
-
-	$("#judul_kegiatan").val("");
-	$("#penyelenggara").val("");
-	$("#level").val("");
-
-	check_tipe_bukti(null, "add");
-	$("#tipe_bukti").val("");
-	$("#bukti_url").val("");
-	$("#bukti_files").val("");
-
-	$("#container_file").html("");
-	$("#preview_bukti").addClass("d-none");
-	$("#container_preview_bukti").html("");
-}
+$("#tipe_bukti").change(function () {
+	let vall = $(this).val();
+	check_tipe_bukti(vall);
+});
 
 function check_tipe_bukti(vall, from) {
 	if (from == "edit") {

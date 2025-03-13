@@ -57,4 +57,19 @@ class View extends CI_Controller {
         ];
         $this->load->view('client/template', $data);
     }
+
+    public function sertifikat_kompetensi(){
+        $jenis_sertifikat = [
+            'Sertifikat Kompetensi IT', 'Sertifikat Profesional', 'Sertifikat Industri'
+        ];
+        $data = [
+            'title' => 'Sertifikat Kompetensi',
+            'user' => get_user(),
+            'view' => 'client/sertifikat_kompetensi',
+            'js' => ['sertifikat_kompetensi.js'],
+            'jenis_sertifikat' => $jenis_sertifikat,
+            'data' => $this->client->get_sertifikat()->result()
+        ];
+        $this->load->view('client/template', $data);
+    }
 }
