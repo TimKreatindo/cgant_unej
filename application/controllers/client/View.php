@@ -72,4 +72,28 @@ class View extends CI_Controller {
         ];
         $this->load->view('client/template', $data);
     }
+
+    public function publikasi(){
+        $scopus = [
+            'Q1', 'Q2', 'Q3', 'Q4'
+        ];
+        $wos = [
+            'SCIE', 'SSCI', 'AHCI', 'ESCI', 'BCI', 'CPCI', 'WOS'
+        ];
+        $sinta = [
+            'SINTA 1', 'SINTA 2', 'SINTA 3', 'SINTA 4', 'SINTA 5', 'SINTA 6'
+        ];
+        
+        $data = [
+            'title' => 'Publikasi',
+            'user' => get_user(),
+            'view' => 'client/publikasi',
+            'js' => ['publikasi.js'],
+            'scopus' => $scopus,
+            'wos' => $wos,
+            'sinta' => $sinta,
+            'data' => $this->client->get_publikasi()->result()
+        ];
+        $this->load->view('client/template', $data);
+    }
 }

@@ -151,6 +151,13 @@
                             </a>
                         </li>
 
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('client/publikasi') ?>" class='sidebar-link'>
+                                <i class="far fa-folder"></i>
+                                <span>Publikasi</span>
+                            </a>
+                        </li>
+
 
                         <li class="sidebar-item ">
                             <a href="<?= base_url('login/logout') ?>" class='sidebar-link'>

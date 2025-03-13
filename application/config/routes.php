@@ -101,6 +101,7 @@ $route['client/kegiatan-tridharma'] = 'client/view/kegiatan_tridharma';
 $route['client/seminar-webinar'] = 'client/view/seminar';
 $route['client/rekognisi'] = 'client/view/rekognisi';
 $route['client/sertifikat-kompetensi'] = 'client/view/sertifikat_kompetensi';
+$route['client/publikasi'] = 'client/view/publikasi';
 
 
 
@@ -116,3 +117,6 @@ $route['client/validasi-rekognisi']['POST'] = 'client/ajax_rekognisi/validation'
 
 //routing action di menu sertifikat kompetensi
 $route['client/validasi-kompetensi']['POST'] = 'client/ajax_sertifikat/validation';
+
+//routing action di menu publikasi
+$route['client/validasi-publikasi']['POST'] = 'client/ajax_publikasi/validation';

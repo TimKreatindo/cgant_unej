@@ -1,26 +1,26 @@
 <?php
 defined('BASEPATH')or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
-class Ajax_sertifikat extends CI_Controller {
+class Ajax_publikasi extends CI_Controller {
     public function validation(){
         cek_ajax();
         $input_post = $this->input->post(null, true);
-        $act = $this->input->post('act', true);
+        $act = $this->input->post('act');
         $user = get_user();
+
         switch($act){
             case 'add':
                 $tipe_bukti = $input_post['tipe_bukti'];
-                
 
                 if($tipe_bukti == 'file'){
-                    $upload_file = $this->app->upload_files($_FILES['bukti'], 'sertifikat', './assets/upload/sertifikat/');
+                    $upload_file = $this->app->upload_files($_FILES['bukti'], 'publikasi', './assets/upload/publikasi/');
                     $success_upload  = $upload_file['success_upload'];
                     $error_upload = $upload_file['error_upload'];
 
                     if(count($error_upload) > 0){
                         if(!empty($success_upload)){
                             foreach($success_upload as $su){
-                                unlink('./assets/upload/sertifikat/' . $su['file_name']);
+                                unlink('./assets/upload/publikasi/' . $su['file_name']);
                             }
                         }
 
@@ -47,36 +47,42 @@ class Ajax_sertifikat extends CI_Controller {
                     ];
                 }
 
+                $data_indeks = [
+                    'scopus' => $input_post['scopus'],
+                    'wos' => $input_post['wos'],
+                    'sinta' => $input_post['sinta']
+                ];
 
                 $data_insert = [
                         'id_user' => $user->id,
-                        'jenis' => $input_post['jenis_sertifikat'],
-                        'bidang' => $input_post['bidang'],
-                        'level' => $input_post['level'],
-                        'lembaga' => $input_post['lembaga'],
+                        'judul' => $input_post['judul'],
+                        'jurnal' => $input_post['jurnal'],
                         'tahun' => $input_post['year'],
+                        'level' => $input_post['level'],
+                        'indeks' => json_encode($data_indeks),
                         'bukti' => json_encode($bukti),
                         'create_at' => date('Y-m-d H:i:s'),
                         'last_update' => date('Y-m-d H:i:s')
                 ];
                 
-                $this->app->input_data('sh_sertifikat_kompetensi', $data_insert);
+                $this->app->input_data('sh_publikasi', $data_insert);
 
                 break;
             case 'get-edit':
                 $id = $input_post['id'];
-                $get_data = $this->client->get_sertifikat($id)->row();
+                $get_data = $this->client->get_publikasi($id)->row();
                 if($get_data){
                     $decode_bukti = json_decode($get_data->bukti);
+                    $decode_indeks = json_decode($get_data->indeks);
 
                     $data = [
                         'id' => $get_data->id_encode,
-                        'jenis' => $get_data->jenis,
-                        'bidang' => $get_data->bidang,
-                        'level' => $get_data->level	,
-                        'lembaga' => $get_data->lembaga,
+                        'judul' => $get_data->judul,
+                        'jurnal' => $get_data->jurnal,
                         'tahun' => $get_data->tahun,
-                        'bukti' => $decode_bukti,
+                        'level' => $get_data->level,
+                        'indeks' => $decode_indeks,
+                        'bukti' => $decode_bukti
                     ];
 
                     $output = [
@@ -95,8 +101,9 @@ class Ajax_sertifikat extends CI_Controller {
                 json_output($output, 200);
                 break;
             case 'edit':
+
                 $id = $input_post['id'];
-                $get_data = $this->client->get_sertifikat($id)->row();
+                $get_data = $this->client->get_publikasi($id)->row();
 
 
                 if(!empty($get_data)){
@@ -104,14 +111,14 @@ class Ajax_sertifikat extends CI_Controller {
                     
                     if($tipe_bukti == 'file'){
                         if($_FILES['bukti']['name'][0] != ''){
-                            $upload_file = $this->app->upload_files($_FILES['bukti'], 'sertifikat', './assets/upload/sertifikat/');
+                            $upload_file = $this->app->upload_files($_FILES['bukti'], 'publikasi', './assets/upload/publikasi/');
                             $success_upload  = $upload_file['success_upload'];
                             $error_upload = $upload_file['error_upload'];
 
                             if(count($error_upload) > 0){
                                 if(!empty($success_upload)){
                                     foreach($success_upload as $su){
-                                        unlink('./assets/upload/sertifikat/' . $su['file_name']);
+                                        unlink('./assets/upload/publikasi/' . $su['file_name']);
                                     }
                                 }
         
@@ -167,17 +174,26 @@ class Ajax_sertifikat extends CI_Controller {
                         ];
                     }
 
-                    $data_update = [
-                        'jenis' => $input_post['jenis_sertifikat'],
-                        'bidang' => $input_post['bidang'],
-                        'level' => $input_post['level'],
-                        'lembaga' => $input_post['lembaga'],
-                        'tahun' => $input_post['year'],
-                        'bukti' => json_encode($bukti),
-                        'last_update' => date('Y-m-d H:i:s')
+                    
+                    $data_indeks = [
+                        'scopus' => $input_post['scopus'],
+                        'wos' => $input_post['wos'],
+                        'sinta' => $input_post['sinta']
                     ];
     
-                    $this->db->where('sha1(id)', $id)->update('sh_sertifikat_kompetensi', $data_update);
+                    $data_update = [
+                            'judul' => $input_post['judul'],
+                            'jurnal' => $input_post['jurnal'],
+                            'tahun' => $input_post['year'],
+                            'level' => $input_post['level'],
+                            'indeks' => json_encode($data_indeks),
+                            'bukti' => json_encode($bukti),
+                            'last_update' => date('Y-m-d H:i:s')
+                    ];
+                    
+
+    
+                    $this->db->where('sha1(id)', $id)->update('sh_publikasi', $data_update);
                     if($this->db->affected_rows() > 0){
                         $output = [
                             'status' => true,
@@ -202,12 +218,11 @@ class Ajax_sertifikat extends CI_Controller {
                         'type' => 'err_result'
                     ];
                 }
-                
                 json_output($output, 200);
                 break;
             case 'delete':
                 $id = $input_post['id'];
-                $this->app->delete_data('sh_sertifikat_kompetensi', 'sha1(id)', $id);
+                $this->app->delete_data('sh_publikasi', 'sha1(id)', $id);
                 break;
         }
     }
