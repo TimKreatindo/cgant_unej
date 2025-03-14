@@ -158,6 +158,20 @@
                             </a>
                         </li>
 
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('client/pengelola-jurnal') ?>" class='sidebar-link'>
+                                <i class="far fa-folder"></i>
+                                <span>Pengelola Jurnal</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('client/organisasi') ?>" class='sidebar-link'>
+                                <i class="far fa-folder"></i>
+                                <span>Organisasi</span>
+                            </a>
+                        </li>
+
 
                         <li class="sidebar-item ">
                             <a href="<?= base_url('login/logout') ?>" class='sidebar-link'>

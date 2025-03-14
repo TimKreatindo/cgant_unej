@@ -96,4 +96,19 @@ class View extends CI_Controller {
         ];
         $this->load->view('client/template', $data);
     }
+
+    public function jurnal(){
+        $role = [
+            'Editor in Chief', 'Managing Editor', 'Layouting Editor', 'Associate Editors', 'Reviewer'
+        ];
+        $data = [
+            'title' => 'Pengelola Jurnal',
+            'user' => get_user(),
+            'view' => 'client/jurnal',
+            'js' => ['jurnal.js'],
+            'role' => $role,
+            'data' => $this->client->get_jurnal()->result()
+        ];
+        $this->load->view('client/template', $data);
+    }
 }

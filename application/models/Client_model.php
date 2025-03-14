@@ -71,4 +71,17 @@ class Client_model extends CI_Model {
 
         return $this->db->get();
     }
+
+    public function get_jurnal($id = null){
+        $this->db->select('sh_pengelola_jurnal.*, sha1(sh_pengelola_jurnal.id) as id_encode')
+        ->from('sh_pengelola_jurnal')
+        ->where('id_user', $this->user->id);
+
+        if($id){
+            $this->db->where('sha1(sh_pengelola_jurnal.id)', $id);
+        }
+        $this->db->order_by('sh_pengelola_jurnal.create_at', 'desc');
+
+        return $this->db->get();
+    }
 }
