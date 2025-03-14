@@ -103,6 +103,8 @@ $route['client/rekognisi'] = 'client/view/rekognisi';
 $route['client/sertifikat-kompetensi'] = 'client/view/sertifikat_kompetensi';
 $route['client/publikasi'] = 'client/view/publikasi';
 $route['client/pengelola-jurnal'] = 'client/view/jurnal';
+$route['client/organisasi'] = 'client/view/organisasi';
+
 
 
 
@@ -124,3 +126,6 @@ $route['client/validasi-publikasi']['POST'] = 'client/ajax_publikasi/validation'
 
 //routing action di menu pengelola jurnal
 $route['client/validasi-jurnal']['POST'] = 'client/ajax_jurnal/validation';
+
+//routing action di menu pengelola organisasi
+$route['client/validasi-organisasi']['POST'] = 'client/ajax_organisasi/validation';

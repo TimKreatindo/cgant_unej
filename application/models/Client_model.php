@@ -84,4 +84,17 @@ class Client_model extends CI_Model {
 
         return $this->db->get();
     }
+
+    public function get_organisasi($id = null){
+        $this->db->select('sh_organisasi.*, sha1(sh_organisasi.id) as id_encode')
+        ->from('sh_organisasi')
+        ->where('id_user', $this->user->id);
+
+        if($id){
+            $this->db->where('sha1(sh_organisasi.id)', $id);
+        }
+        $this->db->order_by('sh_organisasi.create_at', 'desc');
+
+        return $this->db->get();
+    }
 }

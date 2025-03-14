@@ -111,4 +111,20 @@ class View extends CI_Controller {
         ];
         $this->load->view('client/template', $data);
     }
+
+    public function organisasi(){
+        $organisasi = [
+            'IndoMS','InaCombS','CMSA'
+        ];
+        
+        $data = [
+            'title' => 'Organisasi',
+            'user' => get_user(),
+            'view' => 'client/organisasi',
+            'js' => ['organisasi.js'],
+            'organisasi' => $organisasi,
+            'data' => $this->client->get_organisasi()->result()
+        ];
+        $this->load->view('client/template', $data);
+    }
 }
