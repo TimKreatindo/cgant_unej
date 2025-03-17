@@ -85,4 +85,15 @@ class View extends CI_Controller {
         
         $this->load->view('admin/template', $data);
     }
+
+    public function sertifikat(){
+        $data = [
+            'title' => 'Sertifikat Kompetensi',
+            'view' => 'admin/sh_sertifikat',
+            'user' => $this->user,
+            'js' => ['sh_sertifikat.js']
+        ];
+        
+        $this->load->view('admin/template', $data);
+    }
 }

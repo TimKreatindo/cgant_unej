@@ -76,6 +76,8 @@ class Datatable_model extends CI_Model {
             $this->q_seminar();
         } else if($from === 'rekognisi'){
             $this->q_rekognisi();
+        } else if($from === 'sertifikat'){
+            $this->q_sertifikat();
         }
         return $this->db->count_all_results();
     }
@@ -90,7 +92,10 @@ class Datatable_model extends CI_Model {
         } else if($from === 'rekognisi'){ 
             $this->q_rekognisi();
             $search = ['nama', 'nip', 'jenis_rekognisi', 'jenis_kegiatan', 'level', 'penyelenggara', 'tahun'];
-        }
+        } else if($from === 'sertifikat'){ 
+            $this->q_sertifikat();
+            $search = ['nama', 'nip', 'jenis_sertifikat', 'bidang', 'level', 'lembaga', 'tahun'];
+        } 
         
         $i = 0;
         foreach ($search as $item) {
@@ -149,5 +154,18 @@ class Datatable_model extends CI_Model {
         ->from('sh_rekognisi')
         ->join('user', 'sh_rekognisi.id_user = user.id')
         ->order_by('sh_rekognisi.create_at' , 'DESC');
+    }
+
+    //main query datatable sertifikat kompetensi menu
+    private function q_sertifikat(){
+        $this->db->select('
+        sh_sertifikat_kompetensi.*,
+        sha1(sh_sertifikat_kompetensi.id) AS id_encode,
+        user.nip,
+        user.nama
+        ')
+        ->from('sh_sertifikat_kompetensi')
+        ->join('user', 'sh_sertifikat_kompetensi.id_user = user.id')
+        ->order_by('sh_sertifikat_kompetensi.create_at' , 'DESC');
     }
 }

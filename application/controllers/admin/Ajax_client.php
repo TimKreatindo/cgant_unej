@@ -267,4 +267,82 @@ class ajax_client extends CI_Controller {
         
         json_output($output, 200);
     }
+
+
+
+    //ajax sertifikat
+    public function datatable_sertifikat(){
+        cek_ajax();
+        $get_data = $this->datatable->get_data('sertifikat');
+        $data = [];
+
+        $no = 1;
+        foreach($get_data as $gd){
+            $row = [];
+
+            $row[] = $no++;
+            $row[] = $gd->nip;
+            $row[] = $gd->nama;
+            $row[] = $gd->jenis;
+            $row[] = $gd->level;
+            $row[] = 
+                form_open('admin/detail-sertifikat', 'class="action"').
+                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
+                form_close()
+            ;
+
+            $data[] = $row;
+        }
+
+
+
+        $output = [
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->datatable->count_all_data('sertifikat'),
+            "recordsFiltered" => $this->datatable->filtered_data('sertifikat'),
+            "data" => $data,
+        ];
+        json_output($output, 200);
+    }
+
+    public function detail_sertifikat(){
+        cek_ajax();
+        $id = $this->input->post('id', true);
+        $data = $this->app->get_where_data('sh_sertifikat_kompetensi', 'sha1(id)', $id)->row();
+
+        if($data){
+            $decode_bukti = json_decode($data->bukti);
+
+            $c_create = date_create($data->create_at);
+            $c_update = date_create($data->last_update);
+
+
+            $shown_data = [
+                'tahun' => $data->tahun,
+                'jenis' => $data->jenis,
+                'bidang' => $data->bidang,
+                'level' => $data->level,
+                'lembaga' => $data->lembaga,
+
+                'bukti' => $decode_bukti,
+                'create_at' => date_format($c_create, 'd F Y H:i:s'),
+                'last_update' => date_format($c_update, 'd F Y H:i:s'),
+            ];
+
+            $output = [
+                'status' => true,
+                'data' => $shown_data,
+                'token' => get_token()
+            ];
+        } else {
+            $output = [
+                'status' => false,
+                'msg' => 'Data tidak ditemukan',
+                'token' => get_token()
+            ];
+        }
+        
+        json_output($output, 200);
+    }
 }
