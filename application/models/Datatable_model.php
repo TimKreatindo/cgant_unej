@@ -72,6 +72,10 @@ class Datatable_model extends CI_Model {
     public function count_all_data($from){
         if($from == 'tridharma'){
             $this->q_tridharma();
+        } else if($from === 'seminar'){
+            $this->q_seminar();
+        } else if($from === 'rekognisi'){
+            $this->q_rekognisi();
         }
         return $this->db->count_all_results();
     }
@@ -83,6 +87,9 @@ class Datatable_model extends CI_Model {
         } else if($from === 'seminar'){
             $this->q_seminar();
             $search = ['nama', 'nip', 'jenis_kegiatan', 'jenis_partisipasi', 'judul_kegiatan', 'penyelenggara'];
+        } else if($from === 'rekognisi'){ 
+            $this->q_rekognisi();
+            $search = ['nama', 'nip', 'jenis_rekognisi', 'jenis_kegiatan', 'level', 'penyelenggara', 'tahun'];
         }
         
         $i = 0;
@@ -129,5 +136,18 @@ class Datatable_model extends CI_Model {
         ->from('sh_seminar')
         ->join('user', 'sh_seminar.id_user = user.id')
         ->order_by('sh_seminar.create_at' , 'DESC');
+    }
+
+    //main query datatable rekognisi menu
+    private function q_rekognisi(){
+        $this->db->select('
+        sh_rekognisi.*,
+        sha1(sh_rekognisi.id) AS id_encode,
+        user.nip,
+        user.nama
+        ')
+        ->from('sh_rekognisi')
+        ->join('user', 'sh_rekognisi.id_user = user.id')
+        ->order_by('sh_rekognisi.create_at' , 'DESC');
     }
 }

@@ -74,4 +74,15 @@ class View extends CI_Controller {
         
         $this->load->view('admin/template', $data);
     }
+
+    public function rekognisi(){
+        $data = [
+            'title' => 'Rekognisi',
+            'view' => 'admin/sh_rekognisi',
+            'user' => $this->user,
+            'js' => ['sh_rekognisi.js']
+        ];
+        
+        $this->load->view('admin/template', $data);
+    }
 }

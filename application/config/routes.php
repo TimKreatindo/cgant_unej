@@ -61,6 +61,8 @@ $route['admin/master_user'] = 'admin/view/master_user';
 $route['admin/kerjasama'] = 'admin/view/kerjasama';
 $route['admin/kegiatan-tridharma'] = 'admin/view/kegiatan_tridharma';
 $route['admin/seminar'] = 'admin/view/seminar';
+$route['admin/rekognisi'] = 'admin/view/rekognisi';
+
 
 
 
@@ -88,6 +90,9 @@ $route['admin/detail-tridharma']['POST'] = 'admin/ajax_client/detail_tridharma';
 $route['admin/datatable-seminar']['POST'] = 'admin/ajax_client/datatable_seminar';
 $route['admin/detail-seminar']['POST'] = 'admin/ajax_client/detail_seminar';
 
+//routing action di menu rekognisi
+$route['admin/datatable-rekognisi']['POST'] = 'admin/ajax_client/datatable_rekognisi';
+$route['admin/detail-rekognisi']['POST'] = 'admin/ajax_client/detail_rekognisi';
 
 
 
