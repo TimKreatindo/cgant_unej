@@ -63,4 +63,15 @@ class View extends CI_Controller {
         
         $this->load->view('admin/template', $data);
     }
+
+    public function seminar(){
+        $data = [
+            'title' => 'Kegiatan Tridharma',
+            'view' => 'admin/sh_seminar',
+            'user' => $this->user,
+            'js' => ['sh_seminar.js']
+        ];
+        
+        $this->load->view('admin/template', $data);
+    }
 }

@@ -60,6 +60,7 @@ $route['admin/master_jurusan'] = 'admin/view/master_jurusan';
 $route['admin/master_user'] = 'admin/view/master_user';
 $route['admin/kerjasama'] = 'admin/view/kerjasama';
 $route['admin/kegiatan-tridharma'] = 'admin/view/kegiatan_tridharma';
+$route['admin/seminar'] = 'admin/view/seminar';
 
 
 
@@ -82,6 +83,10 @@ $route['admin/get-kerjasama-row']['POST'] = 'admin/ajax_kerjasama/get_kerjasama_
 //routing action di menu kegiatan tridharma
 $route['admin/datatable-tridharma']['POST'] = 'admin/ajax_client/datatable_tridharma';
 $route['admin/detail-tridharma']['POST'] = 'admin/ajax_client/detail_tridharma';
+
+//routing action di menu seminar/webinar
+$route['admin/datatable-seminar']['POST'] = 'admin/ajax_client/datatable_seminar';
+$route['admin/detail-seminar']['POST'] = 'admin/ajax_client/detail_seminar';
 
 
 

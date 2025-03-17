@@ -85,12 +85,12 @@
                         </ul>
                     </li>
 
-                    <li class="pc-item">
+                    <!-- <li class="pc-item">
                         <a href="<?= base_url('admin/iku') ?>" class="pc-link">
                             <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
                             <span class="pc-mtext">IKU</span>
                         </a>
-                    </li>
+                    </li> -->
 
                     <li class="pc-item">
                         <a href="<?= base_url('admin/kerjasama') ?>" class="pc-link">
@@ -107,16 +107,44 @@
                     </li>
 
                     <li class="pc-item">
-                        <a href="<?= base_url('admin/haki') ?>" class="pc-link">
+                        <a href="<?= base_url('admin/seminar') ?>" class="pc-link">
                             <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
-                            <span class="pc-mtext">HAKI</span>
+                            <span class="pc-mtext">Seminar / Webinar</span>
                         </a>
                     </li>
 
                     <li class="pc-item">
-                        <a href="<?= base_url('admin/hibah-penelitian') ?>" class="pc-link">
+                        <a href="<?= base_url('admin/rekognisi') ?>" class="pc-link">
                             <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
-                            <span class="pc-mtext">Hibah Penelitian</span>
+                            <span class="pc-mtext">Rekognisi</span>
+                        </a>
+                    </li>
+
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/sertifikat') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">Sertifikat Kompetensi</span>
+                        </a>
+                    </li>
+
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/publikasi') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">Publikasi</span>
+                        </a>
+                    </li>
+
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/jurnal') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">Pengelola Jurnal</span>
+                        </a>
+                    </li>
+
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/organisasi') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">Organisasi</span>
                         </a>
                     </li>
 

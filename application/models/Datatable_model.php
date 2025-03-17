@@ -80,6 +80,9 @@ class Datatable_model extends CI_Model {
         if($from==='tridharma'){
             $this->q_tridharma();
             $search = ['nama', 'nip', 'tempat_kegiatan'];
+        } else if($from === 'seminar'){
+            $this->q_seminar();
+            $search = ['nama', 'nip', 'jenis_kegiatan', 'jenis_partisipasi', 'judul_kegiatan', 'penyelenggara'];
         }
         
         $i = 0;
@@ -102,7 +105,7 @@ class Datatable_model extends CI_Model {
 
 
 
-    //main query
+    //main query datatable tridhama menu
     private function q_tridharma(){
         $this->db->select('
         sh_kegiatan_tridharma.*,
@@ -113,5 +116,18 @@ class Datatable_model extends CI_Model {
         ->from('sh_kegiatan_tridharma')
         ->join('user', 'sh_kegiatan_tridharma.id_user = user.id')
         ->order_by('sh_kegiatan_tridharma.create_at' , 'DESC');
+    }
+
+    //main query datatable seminar menu
+    private function q_seminar(){
+        $this->db->select('
+        sh_seminar.*,
+        sha1(sh_seminar.id) AS id_encode,
+        user.nip,
+        user.nama
+        ')
+        ->from('sh_seminar')
+        ->join('user', 'sh_seminar.id_user = user.id')
+        ->order_by('sh_seminar.create_at' , 'DESC');
     }
 }
