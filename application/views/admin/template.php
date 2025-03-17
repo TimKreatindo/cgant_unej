@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title><?= $title ?> | CGANT</title>
+    <title><?= $title ?> | FMIPA UNEJ</title>
     <!-- [Meta] -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGANT UNIVERSITAS JEMBER | LOGIN PAGE</title>
+    <title>FMIPA UNIVERSITAS JEMBER | LOGIN PAGE</title>
 
     <link rel="icon" href="<?= base_url('assets/img/web/logo.png') ?>">
     <link rel="stylesheet" href="<?= base_url('template/client/compiled/css/app.css') ?>">
@@ -87,7 +87,7 @@
                 <?= form_open('validasi_login', 'id="form_login"') ?>
                 <div class="text-center">
                     <img src="<?= base_url('assets/img/web/logo.png') ?>" alt="logo" style="width: 80px" id="logo">
-                    <h4 class="mt-3">CGANT UNIVERSITAS JEMBER</h4>
+                    <h4 class="mt-3">FMIPA UNIVERSITAS JEMBER</h4>
                     <P class="mb-3">Login Page</P>
 
                     <div id="alert_container" class="mb-3">
