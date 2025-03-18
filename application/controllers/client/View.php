@@ -55,8 +55,9 @@ class View extends CI_Controller {
             'view' => 'client/rekognisi',
             'js' => ['rekognisi.js'],
             'data' => $this->client->get_rekognisi()->result(),
-            'rekognisi' => $jenis_rekognisi,
-            'kegiatan' => $jenis_kegiatan
+            'kegiatan' => $this->app->get_json_file('kegiatan_rekognisi.json'),
+            'rekognisi' => $this->app->get_json_file('jenis_rekognisi.json')
+
         ];
         $this->load->view('client/template', $data);
     }
