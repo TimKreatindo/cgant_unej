@@ -35,7 +35,9 @@ class View extends CI_Controller {
             'user' => get_user(),
             'view' => 'client/seminar',
             'js' => ['seminar.js'],
-            'data' => $this->client->get_seminar()->result()
+            'data' => $this->client->get_seminar()->result(),
+            'kegiatan' => $this->app->get_json_file('kegiatan_seminar.json'),
+            'partisipasi' => $this->app->get_json_file('partisipasi_seminar.json')
         ];
         $this->load->view('client/template', $data);
     }

@@ -32,6 +32,48 @@ class ajax_client extends CI_Controller {
                     echo json_encode($params);
                 }
                 break;
+            case 'kegiatan-seminar':
+                if(!empty($input_post['kegiatan'])){
+                    $kegiatan = $input_post['kegiatan'];
+                    $c_kegiatan = count($kegiatan);
+
+                    $data_kegiatan = [];
+                    for($i = 0; $i < $c_kegiatan; $i++){
+                        $data_kegiatan[] = $kegiatan[$i];
+                    }
+
+                    $this->app->change_json_file('kegiatan_seminar.json', $data_kegiatan);
+
+                } else {
+                    $params = [
+                        'status' => false,
+                        'msg' => 'Data harap di isi',
+                        'token' => get_token()
+                    ];
+                    echo json_encode($params);
+                }
+                break;
+            case 'partisipasi-seminar':
+                if(!empty($input_post['partisipasi'])){
+                    $kegiatan = $input_post['partisipasi'];
+                    $c_kegiatan = count($kegiatan);
+
+                    $data_kegiatan = [];
+                    for($i = 0; $i < $c_kegiatan; $i++){
+                        $data_kegiatan[] = $kegiatan[$i];
+                    }
+
+                    $this->app->change_json_file('partisipasi_seminar.json', $data_kegiatan);
+
+                } else {
+                    $params = [
+                        'status' => false,
+                        'msg' => 'Data harap di isi',
+                        'token' => get_token()
+                    ];
+                    echo json_encode($params);
+                }
+                break;
         }
     }
 
@@ -44,6 +86,29 @@ class ajax_client extends CI_Controller {
         switch($act){
             case 'kegiatan-tridharma':
                 $data = $this->app->get_json_file('kegiatan_tridharma.json');
+
+                $params = [
+                    'status' => true,
+                    'token'=> get_token(),
+                    'data' => $data
+                ];
+
+                json_output($params, 200);
+                break;
+            
+            case 'kegiatan-seminar':
+                $data = $this->app->get_json_file('kegiatan_seminar.json');
+
+                $params = [
+                    'status' => true,
+                    'token'=> get_token(),
+                    'data' => $data
+                ];
+
+                json_output($params, 200);
+                break;
+            case 'partisipasi-seminar':
+                $data = $this->app->get_json_file('partisipasi_seminar.json');
 
                 $params = [
                     'status' => true,
