@@ -43,12 +43,6 @@ class View extends CI_Controller {
     }
 
     public function rekognisi(){
-        $jenis_rekognisi = [
-            'Reviewer', 'Pembicara', 'Editor', 'Juri', 'Penghargaan'
-        ];
-        $jenis_kegiatan = ['Seminar', 'Lomba Ilmiah', 'Presentasi Ilmiah', 'Jurnal'];
-
-
         $data = [
             'title' => 'Rekognisi',
             'user' => get_user(),
@@ -63,15 +57,12 @@ class View extends CI_Controller {
     }
 
     public function sertifikat_kompetensi(){
-        $jenis_sertifikat = [
-            'Sertifikat Kompetensi IT', 'Sertifikat Profesional', 'Sertifikat Industri'
-        ];
         $data = [
             'title' => 'Sertifikat Kompetensi',
             'user' => get_user(),
             'view' => 'client/sertifikat_kompetensi',
             'js' => ['sertifikat_kompetensi.js'],
-            'jenis_sertifikat' => $jenis_sertifikat,
+            'jenis_sertifikat' => $this->app->get_json_file('jenis_sertifikat.json'),
             'data' => $this->client->get_sertifikat()->result()
         ];
         $this->load->view('client/template', $data);

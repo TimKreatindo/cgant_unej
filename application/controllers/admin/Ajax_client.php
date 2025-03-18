@@ -116,6 +116,27 @@ class ajax_client extends CI_Controller {
                     echo json_encode($params);
                 }
                 break;
+            case 'jenis-sertifikat':
+                if(!empty($input_post['sertifikat'])){
+                    $kegiatan = $input_post['sertifikat'];
+                    $c_kegiatan = count($kegiatan);
+
+                    $data_kegiatan = [];
+                    for($i = 0; $i < $c_kegiatan; $i++){
+                        $data_kegiatan[] = $kegiatan[$i];
+                    }
+
+                    $this->app->change_json_file('jenis_sertifikat.json', $data_kegiatan);
+
+                } else {
+                    $params = [
+                        'status' => false,
+                        'msg' => 'Data harap di isi',
+                        'token' => get_token()
+                    ];
+                    echo json_encode($params);
+                }
+                break;
         }
     }
 
@@ -181,6 +202,18 @@ class ajax_client extends CI_Controller {
                 ];
 
                 json_output($params, 200);
+                break;
+            case 'jenis-sertifikat':
+                $data = $this->app->get_json_file('jenis_sertifikat.json');
+
+                $params = [
+                    'status' => true,
+                    'token'=> get_token(),
+                    'data' => $data
+                ];
+
+                json_output($params, 200);
+                break;
                 break;
         }
     }
