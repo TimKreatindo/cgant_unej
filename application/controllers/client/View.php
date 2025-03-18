@@ -23,7 +23,8 @@ class View extends CI_Controller {
             'user' => get_user(),
             'view' => 'client/kegiatan_tridharma',
             'js' => ['kegiatan_tridharma.js'],
-            'data' => $this->client->get_kegiatan_tridharma()->result()
+            'data' => $this->client->get_kegiatan_tridharma()->result(),
+            'kegiatan' => $this->app->get_json_file('kegiatan_tridharma.json')
         ];
         $this->load->view('client/template', $data);
     }
@@ -45,7 +46,7 @@ class View extends CI_Controller {
         ];
         $jenis_kegiatan = ['Seminar', 'Lomba Ilmiah', 'Presentasi Ilmiah', 'Jurnal'];
 
-        
+
         $data = [
             'title' => 'Rekognisi',
             'user' => get_user(),
@@ -83,7 +84,7 @@ class View extends CI_Controller {
         $sinta = [
             'SINTA 1', 'SINTA 2', 'SINTA 3', 'SINTA 4', 'SINTA 5', 'SINTA 6'
         ];
-        
+
         $data = [
             'title' => 'Publikasi',
             'user' => get_user(),
@@ -116,7 +117,7 @@ class View extends CI_Controller {
         $organisasi = [
             'IndoMS','InaCombS','CMSA'
         ];
-        
+
         $data = [
             'title' => 'Organisasi',
             'user' => get_user(),

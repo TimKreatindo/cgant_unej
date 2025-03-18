@@ -54,6 +54,12 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['validasi_login']['POST'] = 'login/validation';
 
+
+//ajax master universal
+$route['admin/add-master']  = 'admin/ajax_client/add_master_universal';
+$route['admin/get-master'] = 'admin/ajax_client/get_master_universal';
+
+
 //routing menu list di bagian admin
 $route['admin'] = 'admin/view/index';
 $route['admin/master_jurusan'] = 'admin/view/master_jurusan';

@@ -135,4 +135,42 @@ class App_model extends CI_Model {
         $data = $this->db->where($where, $param)->get($table);
         return $data;
     }
+
+    public function change_json_file($filename, $data_val){
+        $json_data = json_encode($data_val, JSON_PRETTY_PRINT);
+        $file_path = './application/third_party/json/' . $filename;
+
+        if (file_put_contents($file_path, $json_data) === false) {
+            $params = [
+                'status' => false,
+                'msg' => 'Data gagal di simpan',
+                'token' => get_token()
+            ];
+        } else {
+            $params = [
+                'status' => true,
+                'msg' => 'Data berhasil di simpan',
+                'token' => get_token()
+            ];
+        }
+        json_output($params, 200);
+    }
+
+    public function get_json_file($filename){
+        $file_path = './application/third_party/json/' . $filename;
+
+        $get_data = file_get_contents($file_path);
+        if($get_data === false){
+            $params = [
+                'status' => false,
+                'msg' => 'Error reading the file '. $filename,
+                'token' => get_token()
+            ];
+            echo json_encode($params);
+            exit;
+        } else {
+            $decode_data = json_decode($get_data);
+            return $decode_data;
+        }
+    }
 }

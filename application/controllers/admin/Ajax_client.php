@@ -3,6 +3,60 @@ defined('BASEPATH')or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
 class ajax_client extends CI_Controller {
 
+    //ajax master universal
+    public function add_master_universal(){
+        cek_ajax();
+        $act = $this->input->post('act');
+        $input_post = $this->input->post(null, true);
+        
+
+        switch($act){
+            case 'kegiatan-tridharma':
+                if(!empty($input_post['kegiatan'])){
+                    $kegiatan = $input_post['kegiatan'];
+                    $c_kegiatan = count($kegiatan);
+
+                    $data_kegiatan = [];
+                    for($i = 0; $i < $c_kegiatan; $i++){
+                        $data_kegiatan[] = $kegiatan[$i];
+                    }
+
+                    $this->app->change_json_file('kegiatan_tridharma.json', $data_kegiatan);
+
+                } else {
+                    $params = [
+                        'status' => false,
+                        'msg' => 'Data harap di isi',
+                        'token' => get_token()
+                    ];
+                    echo json_encode($params);
+                }
+                break;
+        }
+    }
+
+    public function get_master_universal(){
+        cek_ajax();
+        $act = $this->input->post('act');
+        $input_post = $this->input->post(null, true);
+        
+
+        switch($act){
+            case 'kegiatan-tridharma':
+                $data = $this->app->get_json_file('kegiatan_tridharma.json');
+
+                $params = [
+                    'status' => true,
+                    'token'=> get_token(),
+                    'data' => $data
+                ];
+
+                json_output($params, 200);
+                break;
+        }
+    }
+
+
     //ajax tridharma
     public function datatable_tridharma(){
         cek_ajax();
