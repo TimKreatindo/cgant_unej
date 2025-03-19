@@ -47,11 +47,6 @@ class Ajax_publikasi extends CI_Controller {
                     ];
                 }
 
-                $data_indeks = [
-                    'scopus' => $input_post['scopus'],
-                    'wos' => $input_post['wos'],
-                    'sinta' => $input_post['sinta']
-                ];
 
                 $data_insert = [
                         'id_user' => $user->id,
@@ -59,7 +54,7 @@ class Ajax_publikasi extends CI_Controller {
                         'jurnal' => $input_post['jurnal'],
                         'tahun' => $input_post['year'],
                         'level' => $input_post['level'],
-                        'indeks' => json_encode($data_indeks),
+                        'indeks' => $input_post['indeks'],
                         'bukti' => json_encode($bukti),
                         'create_at' => date('Y-m-d H:i:s'),
                         'last_update' => date('Y-m-d H:i:s')
@@ -73,7 +68,6 @@ class Ajax_publikasi extends CI_Controller {
                 $get_data = $this->client->get_publikasi($id)->row();
                 if($get_data){
                     $decode_bukti = json_decode($get_data->bukti);
-                    $decode_indeks = json_decode($get_data->indeks);
 
                     $data = [
                         'id' => $get_data->id_encode,
@@ -81,7 +75,7 @@ class Ajax_publikasi extends CI_Controller {
                         'jurnal' => $get_data->jurnal,
                         'tahun' => $get_data->tahun,
                         'level' => $get_data->level,
-                        'indeks' => $decode_indeks,
+                        'indeks' => $get_data->indeks,
                         'bukti' => $decode_bukti
                     ];
 

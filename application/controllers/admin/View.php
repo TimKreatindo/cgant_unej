@@ -96,4 +96,15 @@ class View extends CI_Controller {
         
         $this->load->view('admin/template', $data);
     }
+
+    public function publikasi(){
+        $data = [
+            'title' => 'Publikasi',
+            'view' => 'admin/sh_publikasi',
+            'user' => $this->user,
+            'js' => ['sh_publikasi.js']
+        ];
+        
+        $this->load->view('admin/template', $data);
+    }
 }

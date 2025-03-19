@@ -469,7 +469,8 @@ $config['csrf_exclude_uris'] = array(
     'admin/datatable-tridharma',
     'admin/datatable-seminar',
     'admin/datatable-rekognisi',
-    'admin/datatable-sertifikat'
+    'admin/datatable-sertifikat',
+    'admin/datatable-publikasi'
 );
 
 /*

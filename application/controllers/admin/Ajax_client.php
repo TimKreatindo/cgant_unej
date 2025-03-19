@@ -137,6 +137,33 @@ class ajax_client extends CI_Controller {
                     echo json_encode($params);
                 }
                 break;
+            case 'index-publikasi':
+                if(!empty($input_post['level'])){
+                    $level = $input_post['level'];
+                    $indeks = $input_post['indeks'];
+                    
+                    $c_level = count($level);
+
+                    $data = [];
+                    for($i = 0; $i < $c_level; $i++){
+                        $row = [
+                            'level' => $level[$i],
+                            'indeks' => $indeks[$i]
+                        ];
+                        $data[] = $row;
+                    }
+
+                    $this->app->change_json_file('index_publikasi.json', $data);
+
+                } else {
+                    $params = [
+                        'status' => false,
+                        'msg' => 'Data harap di isi',
+                        'token' => get_token()
+                    ];
+                    echo json_encode($params);
+                }
+                break;
         }
     }
 
@@ -214,6 +241,16 @@ class ajax_client extends CI_Controller {
 
                 json_output($params, 200);
                 break;
+            case 'index-publikasi':
+                $data = $this->app->get_json_file('index_publikasi.json');
+
+                $params = [
+                    'status' => true,
+                    'token'=> get_token(),
+                    'data' => $data
+                ];
+
+                json_output($params, 200);
                 break;
         }
     }
@@ -540,6 +577,83 @@ class ajax_client extends CI_Controller {
                 'bidang' => $data->bidang,
                 'level' => $data->level,
                 'lembaga' => $data->lembaga,
+
+                'bukti' => $decode_bukti,
+                'create_at' => date_format($c_create, 'd F Y H:i:s'),
+                'last_update' => date_format($c_update, 'd F Y H:i:s'),
+            ];
+
+            $output = [
+                'status' => true,
+                'data' => $shown_data,
+                'token' => get_token()
+            ];
+        } else {
+            $output = [
+                'status' => false,
+                'msg' => 'Data tidak ditemukan',
+                'token' => get_token()
+            ];
+        }
+        
+        json_output($output, 200);
+    }
+
+
+    //ajax sertifikat
+    public function datatable_publikasi(){
+        cek_ajax();
+        $get_data = $this->datatable->get_data('publikasi');
+        $data = [];
+
+        $no = 1;
+        foreach($get_data as $gd){
+            $row = [];
+
+            $row[] = $no++;
+            $row[] = $gd->nip;
+            $row[] = $gd->nama;
+            $row[] = $gd->indeks;
+            $row[] = $gd->tahun;
+            $row[] = 
+                form_open('admin/detail-publikasi', 'class="action"').
+                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
+                form_close()
+            ;
+
+            $data[] = $row;
+        }
+
+
+
+        $output = [
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->datatable->count_all_data('publikasi'),
+            "recordsFiltered" => $this->datatable->filtered_data('publikasi'),
+            "data" => $data,
+        ];
+        json_output($output, 200);
+    }
+
+    public function detail_publikasi(){
+        cek_ajax();
+        $id = $this->input->post('id', true);
+        $data = $this->app->get_where_data('sh_publikasi', 'sha1(id)', $id)->row();
+
+        if($data){
+            $decode_bukti = json_decode($data->bukti);
+
+            $c_create = date_create($data->create_at);
+            $c_update = date_create($data->last_update);
+
+
+            $shown_data = [
+                'judul' => $data->judul,
+                'jurnal' => $data->jurnal,
+                'indeks' => $data->indeks,
+                'tahun' => $data->tahun,
+                'level' => $data->level,
 
                 'bukti' => $decode_bukti,
                 'create_at' => date_format($c_create, 'd F Y H:i:s'),

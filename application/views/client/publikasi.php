@@ -20,7 +20,6 @@
                         $i = 1;
                         foreach($data as $d){
                             $decode_bukti = json_decode($d->bukti);
-                            $decode_indeks = json_decode($d->indeks);
                             
                             if($decode_bukti->type == 'file'){
                                 $li_bukti = '';
@@ -33,9 +32,9 @@
                             } 
 
                            ;
-                            $decode_indeks->wos;
-                            $decode_indeks->sinta;
-                            
+
+
+
 
 
                             
@@ -46,8 +45,7 @@
                         <td><?= $d->jurnal ?></td>
                         <td><?= $d->tahun ?></td>
                         <td><?= $d->level ?></td>
-                        <td><?=  $decode_indeks->scopus .'<br>' . $decode_indeks->wos .'<br>'. $decode_indeks->sinta ?>
-                        </td>
+                        <td><?= $d->indeks ?></td>
                         <td><?= $bukti ?></td>
                         <td>
                             <?= form_open('client/validasi-publikasi', 'class="act-edit my-1"') ?>
@@ -110,55 +108,18 @@
                     </select>
                 </div>
 
-                <div class="form-group my-3">
-                    <label><b>Tingkat</b></label>
-                    <select name="level" id="level" class="form-control" required>
-                        <option value="">--pilih--</option>
-                        <option value="Nasional">Nasional</option>
-                        <option value="Internasional">Internasional</option>
-                    </select>
-                </div>
-
+               
                 <div class="form-group my-3">
                     <label><b>Indeksasi</b></label>
-                    <div class="row">
-                        <div class="col-12 my-1">
-                            <label>SCOPUS</label>
-                            <select name="scopus" id="scopus" class="form-control">
-                                <option value="">--pilih--</option>
-                                <?php
-                                    foreach($scopus as $d){
-                                        echo '<option value="'.$d.'">'.$d.'</option>';
-                                    }
-                                ?>
-                            </select>
-                        </div>
-
-                        <div class="col-12 my-1">
-                            <label>WOS</label>
-                            <select name="wos" id="wos" class="form-control">
-                                <option value="">--pilih--</option>
-                                <?php
-                                    foreach($wos as $d){
-                                        echo '<option value="'.$d.'">'.$d.'</option>';
-                                    }
-                                ?>
-                            </select>
-                        </div>
-
-                        <div class="col-12 my-1">
-                            <label>SINTA</label>
-                            <select name="sinta" id="sinta" class="form-control">
-                                <option value="">--pilih--</option>
-                                <?php
-                                    foreach($sinta as $d){
-                                        echo '<option value="'.$d.'">'.$d.'</option>';
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-
+                    <select class="form-control" name="indeks" id="indeks" required>
+                        <option value="">--pilih--</option>
+                        <?php
+                            foreach($indeks as $key){
+                                echo '<option data-level="'.$key->level.'" value="'.$key->indeks.'">'.$key->indeks.'</option>';
+                            }
+                        ?>
+                    </select>
+                    <input type="hidden" name="level" id="level">
 
                 </div>
 

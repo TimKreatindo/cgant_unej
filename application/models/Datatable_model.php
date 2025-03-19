@@ -78,6 +78,8 @@ class Datatable_model extends CI_Model {
             $this->q_rekognisi();
         } else if($from === 'sertifikat'){
             $this->q_sertifikat();
+        } else if($from === 'publikasi'){
+            $this->q_publikasi();
         }
         return $this->db->count_all_results();
     }
@@ -95,6 +97,9 @@ class Datatable_model extends CI_Model {
         } else if($from === 'sertifikat'){ 
             $this->q_sertifikat();
             $search = ['nama', 'nip', 'jenis_sertifikat', 'bidang', 'level', 'lembaga', 'tahun'];
+        } else if($from === 'publikasi'){
+            $search = ['nama', 'nip', 'judul', 'jurnal', 'tahun', 'indeks'];
+            $this->q_publikasi();
         } 
         
         $i = 0;
@@ -167,5 +172,18 @@ class Datatable_model extends CI_Model {
         ->from('sh_sertifikat_kompetensi')
         ->join('user', 'sh_sertifikat_kompetensi.id_user = user.id')
         ->order_by('sh_sertifikat_kompetensi.create_at' , 'DESC');
+    }
+
+    //main query datatable publikasi menu
+    private function q_publikasi(){
+        $this->db->select('
+        sh_publikasi.*,
+        sha1(sh_publikasi.id) AS id_encode,
+        user.nip,
+        user.nama
+        ')
+        ->from('sh_publikasi')
+        ->join('user', 'sh_publikasi.id_user = user.id')
+        ->order_by('sh_publikasi.create_at' , 'DESC');
     }
 }

@@ -69,6 +69,7 @@ $route['admin/kegiatan-tridharma'] = 'admin/view/kegiatan_tridharma';
 $route['admin/seminar'] = 'admin/view/seminar';
 $route['admin/rekognisi'] = 'admin/view/rekognisi';
 $route['admin/sertifikat'] = 'admin/view/sertifikat';
+$route['admin/publikasi'] = 'admin/view/publikasi';
 
 
 
@@ -106,6 +107,11 @@ $route['admin/detail-rekognisi']['POST'] = 'admin/ajax_client/detail_rekognisi';
 //routing action di menu sertifikat kompetensi
 $route['admin/datatable-sertifikat']['POST'] = 'admin/ajax_client/datatable_sertifikat';
 $route['admin/detail-sertifikat']['POST'] = 'admin/ajax_client/detail_sertifikat';
+
+//routng action di menu publikasi
+$route['admin/datatable-publikasi']['POST'] = 'admin/ajax_client/datatable_publikasi';
+$route['admin/detail-publikasi']['POST'] = 'admin/ajax_client/detail_publikasi';
+
 
 
 // 
