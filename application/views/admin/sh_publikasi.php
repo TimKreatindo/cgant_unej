@@ -5,10 +5,37 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <?= form_open('admin/get-master', 'id="form-get-master"') ?>
-                <input type="hidden" name="act" value="index-publikasi">
-                <button class="btn btn-sm btn-primary mb-3" type="submit">Master Index Publikasi</button>
-                <?= form_close() ?>
+
+
+                <div class="row align-items-center">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-3">
+                        <?= form_open('admin/get-master', 'id="form-get-master"') ?>
+                        <input type="hidden" name="act" value="index-publikasi">
+                        <button class="btn btn-sm btn-primary mb-3 w-100" type="submit">Master Index Publikasi</button>
+                        <?= form_close() ?>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-6">
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-3">
+                        <div class="form-group mb-3">
+                            <label><b>Filter Publikasi</b></label>
+                            <select name="filter" id="filter" class="form-control">
+                                <option value="">--pilih--</option>
+                                <option value="scopus">Publikasi Scopus</option>
+                                <option value="scopus-q">Publikasi Scopus Q1 & Q2</option>
+                                <option value="nasional">Publikasi Proceeding Nasional</option>
+                                <option value="internasional">Publikasi Proceeding Internasional</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
 
                 <table class="table table-bordered table-sm" id="main-table">
                     <thead>

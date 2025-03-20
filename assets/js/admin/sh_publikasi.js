@@ -166,6 +166,7 @@ $(document).on("submit", ".action", function (e) {
 });
 
 function load_table() {
+	let filter = $("#filter").val();
 	$("#main-table").DataTable().destroy();
 	$("#main-table").dataTable({
 		processing: true,
@@ -174,6 +175,9 @@ function load_table() {
 		ajax: {
 			url: base_url + "admin/datatable-publikasi",
 			type: "POST",
+			data: {
+				filter: filter,
+			},
 		},
 		columnDefs: [
 			{
@@ -254,4 +258,8 @@ $("#form-modal-master").submit(function (e) {
 			}, 200);
 		},
 	});
+});
+
+$("#filter").change(function () {
+	load_table();
 });

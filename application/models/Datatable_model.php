@@ -186,6 +186,9 @@ class Datatable_model extends CI_Model {
 
     //main query datatable publikasi menu
     private function q_publikasi(){
+        $filter = $this->input->post('filter');
+        
+
         $this->db->select('
         sh_publikasi.*,
         sha1(sh_publikasi.id) AS id_encode,
@@ -195,6 +198,21 @@ class Datatable_model extends CI_Model {
         ->from('sh_publikasi')
         ->join('user', 'sh_publikasi.id_user = user.id')
         ->order_by('sh_publikasi.create_at' , 'DESC');
+
+
+        if($filter){
+            if($filter ==' scopus'){
+                $scopus = ['Scopus Q1', 'Scopus Q2', 'Scopus Q3', 'Scopus Q4'];
+                $this->db->where_in('indeks', $scopus);
+            } else if($filter == 'scopus-q'){
+                $scopus = ['Scopus Q1', 'Scopus Q2'];
+                $this->db->where_in('indeks', $scopus);
+            } else if($filter == 'nasional'){
+                $this->db->where('level', 'Nasional');
+            } else if($filter == 'internasional'){
+                $this->db->where('level', 'Internasional');
+            }
+        }
     }
 
     //main query datatable pengelola jurnal menu
