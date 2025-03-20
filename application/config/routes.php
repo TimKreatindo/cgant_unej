@@ -71,6 +71,8 @@ $route['admin/rekognisi'] = 'admin/view/rekognisi';
 $route['admin/sertifikat'] = 'admin/view/sertifikat';
 $route['admin/publikasi'] = 'admin/view/publikasi';
 $route['admin/jurnal'] = 'admin/view/jurnal';
+$route['admin/organisasi'] = 'admin/view/organisasi';
+
 
 
 
@@ -113,10 +115,13 @@ $route['admin/detail-sertifikat']['POST'] = 'admin/ajax_client/detail_sertifikat
 $route['admin/datatable-publikasi']['POST'] = 'admin/ajax_client/datatable_publikasi';
 $route['admin/detail-publikasi']['POST'] = 'admin/ajax_client/detail_publikasi';
 
-//routng action di menu publikasi
+//routng action di menu jurnal
 $route['admin/datatable-jurnal']['POST'] = 'admin/ajax_client/datatable_jurnal';
 $route['admin/detail-jurnal']['POST'] = 'admin/ajax_client/detail_jurnal';
 
+//routng action di menu organisasi
+$route['admin/datatable-organisasi']['POST'] = 'admin/ajax_client/datatable_organisasi';
+$route['admin/detail-organisasi']['POST'] = 'admin/ajax_client/detail_organisasi';
 
 
 // 

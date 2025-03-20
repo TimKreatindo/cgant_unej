@@ -118,4 +118,15 @@ class View extends CI_Controller {
         
         $this->load->view('admin/template', $data);
     }
+
+    public function organisasi(){
+        $data = [
+            'title' => 'Organisasi',
+            'view' => 'admin/sh_organisasi',
+            'user' => $this->user,
+            'js' => ['sh_organisasi.js']
+        ];
+        
+        $this->load->view('admin/template', $data);
+    }
 }
