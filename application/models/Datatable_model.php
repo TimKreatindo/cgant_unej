@@ -80,6 +80,8 @@ class Datatable_model extends CI_Model {
             $this->q_sertifikat();
         } else if($from === 'publikasi'){
             $this->q_publikasi();
+        } else if($from === 'jurnal'){
+            $this->q_jurnal();
         }
         return $this->db->count_all_results();
     }
@@ -100,6 +102,9 @@ class Datatable_model extends CI_Model {
         } else if($from === 'publikasi'){
             $search = ['nama', 'nip', 'judul', 'jurnal', 'tahun', 'indeks'];
             $this->q_publikasi();
+        } else if($from === 'jurnal'){
+            $search = ['nama', 'nip', 'jurnal', 'tahun', 'role'];
+            $this->q_jurnal();
         } 
         
         $i = 0;
@@ -185,5 +190,18 @@ class Datatable_model extends CI_Model {
         ->from('sh_publikasi')
         ->join('user', 'sh_publikasi.id_user = user.id')
         ->order_by('sh_publikasi.create_at' , 'DESC');
+    }
+
+    //main query datatable pengelola jurnal menu
+    private function q_jurnal(){
+        $this->db->select('
+        sh_pengelola_jurnal.*,
+        sha1(sh_pengelola_jurnal.id) AS id_encode,
+        user.nip,
+        user.nama
+        ')
+        ->from('sh_pengelola_jurnal')
+        ->join('user', 'sh_pengelola_jurnal.id_user = user.id')
+        ->order_by('sh_pengelola_jurnal.create_at' , 'DESC');
     }
 }

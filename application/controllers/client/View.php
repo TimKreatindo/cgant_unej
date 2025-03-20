@@ -89,7 +89,7 @@ class View extends CI_Controller {
             'user' => get_user(),
             'view' => 'client/jurnal',
             'js' => ['jurnal.js'],
-            'role' => $role,
+            'role' => $this->app->get_json_file('jabatan_jurnal.json'),
             'data' => $this->client->get_jurnal()->result()
         ];
         $this->load->view('client/template', $data);

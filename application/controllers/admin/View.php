@@ -107,4 +107,15 @@ class View extends CI_Controller {
         
         $this->load->view('admin/template', $data);
     }
+
+    public function jurnal(){
+        $data = [
+            'title' => 'Jurnal',
+            'view' => 'admin/sh_jurnal',
+            'user' => $this->user,
+            'js' => ['sh_jurnal.js']
+        ];
+        
+        $this->load->view('admin/template', $data);
+    }
 }

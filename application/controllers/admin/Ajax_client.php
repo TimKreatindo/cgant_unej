@@ -164,6 +164,27 @@ class ajax_client extends CI_Controller {
                     echo json_encode($params);
                 }
                 break;
+            case 'jabatan-jurnal':
+                if(!empty($input_post['jabatan'])){
+                    $kegiatan = $input_post['jabatan'];
+                    $c_kegiatan = count($kegiatan);
+
+                    $data_kegiatan = [];
+                    for($i = 0; $i < $c_kegiatan; $i++){
+                        $data_kegiatan[] = $kegiatan[$i];
+                    }
+
+                    $this->app->change_json_file('jabatan_jurnal.json', $data_kegiatan);
+
+                } else {
+                    $params = [
+                        'status' => false,
+                        'msg' => 'Data harap di isi',
+                        'token' => get_token()
+                    ];
+                    echo json_encode($params);
+                }
+                break;
         }
     }
 
@@ -243,6 +264,17 @@ class ajax_client extends CI_Controller {
                 break;
             case 'index-publikasi':
                 $data = $this->app->get_json_file('index_publikasi.json');
+
+                $params = [
+                    'status' => true,
+                    'token'=> get_token(),
+                    'data' => $data
+                ];
+
+                json_output($params, 200);
+                break;
+            case 'jabatan-jurnal':
+                $data = $this->app->get_json_file('jabatan_jurnal.json');
 
                 $params = [
                     'status' => true,
@@ -600,7 +632,7 @@ class ajax_client extends CI_Controller {
     }
 
 
-    //ajax sertifikat
+    //ajax publikasi
     public function datatable_publikasi(){
         cek_ajax();
         $get_data = $this->datatable->get_data('publikasi');
@@ -652,6 +684,82 @@ class ajax_client extends CI_Controller {
                 'judul' => $data->judul,
                 'jurnal' => $data->jurnal,
                 'indeks' => $data->indeks,
+                'tahun' => $data->tahun,
+                'level' => $data->level,
+
+                'bukti' => $decode_bukti,
+                'create_at' => date_format($c_create, 'd F Y H:i:s'),
+                'last_update' => date_format($c_update, 'd F Y H:i:s'),
+            ];
+
+            $output = [
+                'status' => true,
+                'data' => $shown_data,
+                'token' => get_token()
+            ];
+        } else {
+            $output = [
+                'status' => false,
+                'msg' => 'Data tidak ditemukan',
+                'token' => get_token()
+            ];
+        }
+        
+        json_output($output, 200);
+    }
+
+
+     //ajax Pengelola jurnal
+     public function datatable_jurnal(){
+        cek_ajax();
+        $get_data = $this->datatable->get_data('jurnal');
+        $data = [];
+
+        $no = 1;
+        foreach($get_data as $gd){
+            $row = [];
+
+            $row[] = $no++;
+            $row[] = $gd->nip;
+            $row[] = $gd->nama;
+            $row[] = $gd->jurnal;
+            $row[] = $gd->role;
+            $row[] = 
+                form_open('admin/detail-jurnal', 'class="action"').
+                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
+                form_close()
+            ;
+
+            $data[] = $row;
+        }
+
+
+
+        $output = [
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->datatable->count_all_data('jurnal'),
+            "recordsFiltered" => $this->datatable->filtered_data('jurnal'),
+            "data" => $data,
+        ];
+        json_output($output, 200);
+    }
+
+    public function detail_jurnal(){
+        cek_ajax();
+        $id = $this->input->post('id', true);
+        $data = $this->app->get_where_data('sh_pengelola_jurnal', 'sha1(id)', $id)->row();
+
+        if($data){
+            $decode_bukti = json_decode($data->bukti);
+
+            $c_create = date_create($data->create_at);
+            $c_update = date_create($data->last_update);
+
+
+            $shown_data = [
+                'jurnal' => $data->jurnal,
+                'role' => $data->role,
                 'tahun' => $data->tahun,
                 'level' => $data->level,
 

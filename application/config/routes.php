@@ -70,6 +70,7 @@ $route['admin/seminar'] = 'admin/view/seminar';
 $route['admin/rekognisi'] = 'admin/view/rekognisi';
 $route['admin/sertifikat'] = 'admin/view/sertifikat';
 $route['admin/publikasi'] = 'admin/view/publikasi';
+$route['admin/jurnal'] = 'admin/view/jurnal';
 
 
 
@@ -111,6 +112,10 @@ $route['admin/detail-sertifikat']['POST'] = 'admin/ajax_client/detail_sertifikat
 //routng action di menu publikasi
 $route['admin/datatable-publikasi']['POST'] = 'admin/ajax_client/datatable_publikasi';
 $route['admin/detail-publikasi']['POST'] = 'admin/ajax_client/detail_publikasi';
+
+//routng action di menu publikasi
+$route['admin/datatable-jurnal']['POST'] = 'admin/ajax_client/datatable_jurnal';
+$route['admin/detail-jurnal']['POST'] = 'admin/ajax_client/detail_jurnal';
 
 
 
