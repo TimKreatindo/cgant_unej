@@ -148,6 +148,13 @@
                         </a>
                     </li>
 
+                    <li class="pc-item">
+                        <a href="<?= base_url('admin/hki') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">HKI</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

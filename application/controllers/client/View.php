@@ -106,4 +106,16 @@ class View extends CI_Controller {
         ];
         $this->load->view('client/template', $data);
     }
+
+    public function hki(){
+        $user = get_user();
+        $data = [
+            'title' => 'HKI',
+            'user' => $user,
+            'view' => 'client/hki',
+            'js' => ['hki.js'],
+            'data' => $this->client->get_hki(null, $user->id)->result()
+        ];
+        $this->load->view('client/template', $data);
+    }
 }

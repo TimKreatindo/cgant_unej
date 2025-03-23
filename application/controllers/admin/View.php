@@ -129,4 +129,15 @@ class View extends CI_Controller {
         
         $this->load->view('admin/template', $data);
     }
+
+    public function hki(){
+        $data = [
+            'title' => 'HKI',
+            'view' => 'admin/sh_hki',
+            'user' => $this->user,
+            'js' => ['sh_hki.js']
+        ];
+        
+        $this->load->view('admin/template', $data);
+    }
 }

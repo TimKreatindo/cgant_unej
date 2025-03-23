@@ -72,6 +72,8 @@ $route['admin/sertifikat'] = 'admin/view/sertifikat';
 $route['admin/publikasi'] = 'admin/view/publikasi';
 $route['admin/jurnal'] = 'admin/view/jurnal';
 $route['admin/organisasi'] = 'admin/view/organisasi';
+$route['admin/hki'] = 'admin/view/hki';
+
 
 
 
@@ -123,6 +125,10 @@ $route['admin/detail-jurnal']['POST'] = 'admin/ajax_client/detail_jurnal';
 $route['admin/datatable-organisasi']['POST'] = 'admin/ajax_client/datatable_organisasi';
 $route['admin/detail-organisasi']['POST'] = 'admin/ajax_client/detail_organisasi';
 
+//routng action di menu HKI
+$route['admin/datatable-hki']['POST'] = 'admin/ajax_client/datatable_hki';
+$route['admin/detail-hki']['POST'] = 'admin/ajax_client/detail_hki';
+
 
 // 
 // 
@@ -142,6 +148,8 @@ $route['client/sertifikat-kompetensi'] = 'client/view/sertifikat_kompetensi';
 $route['client/publikasi'] = 'client/view/publikasi';
 $route['client/pengelola-jurnal'] = 'client/view/jurnal';
 $route['client/organisasi'] = 'client/view/organisasi';
+$route['client/hki'] = 'client/view/hki';
+
 
 
 
@@ -167,3 +175,7 @@ $route['client/validasi-jurnal']['POST'] = 'client/ajax_jurnal/validation';
 
 //routing action di menu pengelola organisasi
 $route['client/validasi-organisasi']['POST'] = 'client/ajax_organisasi/validation';
+
+//routing action di menu HKI
+$route['client/validasi-hki']['POST'] = 'client/ajax_hki/validation';
+$route['client/datatable-list-dosen']['POST'] = 'client/ajax_hki/list_dosen';

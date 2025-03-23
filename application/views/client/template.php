@@ -22,6 +22,10 @@
     .list_uploaded {
         border: 1px solid #a6a5c7;
     }
+
+    .list-dosen {
+      border: 1px solid #a6a5c7;
+    }
     </style>
 </head>
 
@@ -109,14 +113,14 @@
                             </a>
                         </li>
 
-                        <!-- <li class="sidebar-item">
-                            <a href="<?= base_url('client/haki') ?>" class='sidebar-link'>
+                         <li class="sidebar-item">
+                            <a href="<?= base_url('client/hki') ?>" class='sidebar-link'>
                                 <i class="far fa-folder"></i>
-                                <span>HAKI</span>
+                                <span>HKI</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item">
+                        <!-- <li class="sidebar-item">
                             <a href="<?= base_url('client/hibah-penelitian') ?>" class='sidebar-link'>
                                 <i class="far fa-folder"></i>
                                 <span>Hibah Penelitian</span>

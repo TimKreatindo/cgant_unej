@@ -472,7 +472,10 @@ $config['csrf_exclude_uris'] = array(
     'admin/datatable-sertifikat',
     'admin/datatable-publikasi',
     'admin/datatable-jurnal',
-    'admin/datatable-organisasi'
+    'admin/datatable-organisasi',
+    'admin/datatable-hki',
+    'client/datatable-list-dosen',
+    
 );
 
 /*

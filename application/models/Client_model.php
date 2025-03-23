@@ -97,4 +97,34 @@ class Client_model extends CI_Model {
 
         return $this->db->get();
     }
+
+    public function get_hki($id = null, $id_user = null){
+      $this->db->select("
+        sh_hki.*,
+        sha1(sh_hki.id) AS id_encode,
+        user.nama AS user_create,
+        user.nip AS user_nip,
+        (SELECT JSON_ARRAYAGG(
+            CONCAT('',user.nama,' (',user.nip,')')
+        )
+        FROM user
+        WHERE user.id IN (SELECT id_user FROM dosen_hki WHERE dosen_hki.id_hki = sh_hki.id AND dosen_hki.id_user != sh_hki.id_user)) AS user_info,
+        (SELECT JSON_ARRAYAGG(
+          CONCAT(id_user)
+          )FROM dosen_hki WHERE dosen_hki.id_hki = sh_hki.id AND dosen_hki.id_user != sh_hki.id_user) AS user_id_info
+      ")
+      ->from('sh_hki')
+      ->join('dosen_hki', 'sh_hki.id = dosen_hki.id_hki')
+      ->join('user', 'sh_hki.id_user = user.id')
+      ->group_by('sh_hki.id');
+      if($id){
+        $this->db->where('sha1(sh_hki.id)', $id);
+      }
+
+      if($id_user){
+        $this->db->where('dosen_hki.id_user', $id_user);
+      }
+      $this->db->order_by('sh_hki.create_at', 'DESC');
+      return $this->db->get();
+    }
 }
