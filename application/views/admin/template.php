@@ -8,12 +8,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="description" content="Dashboardkit is trending dashboard template made using Bootstrap 5 design framework. Dashboardkit is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies.">
-    <meta name="keywords" content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
-
-    <meta name="description" content="Dashboardkit is trending dashboard template made using Bootstrap 5 design framework. Dashboardkit is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies.">
-    <meta name="keywords" content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
-
     <meta name="author" content="Codedthemes">
     <!-- [Favicon] icon -->
     <link rel="icon" href="<?= base_url('assets/img/web/logo.png') ?>" type="image/x-icon">
@@ -163,20 +157,18 @@
                         </li>
 
                         <li class="pc-item">
+                            <a href="<?= base_url('admin/hki') ?>" class="pc-link">
+                                <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                                <span class="pc-mtext">HKI</span>
+                            </a>
+                        </li>
+
+                        <li class="pc-item">
 
                             <a href="<?= base_url('admin/data-lab') ?>" class='pc-link'>
                                 <span class="pc-micon"><i class="fas fa-flask"></i> </span>
                                 <span class="pc-mtext">Data Laboratorium</span>
-
-                                <a href="<?= base_url('admin/hki') ?>" class="pc-link">
-                                    <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
-                                    <span class="pc-mtext">HKI</span>
-
-                                    <a href="<?= base_url('admin/hki') ?>" class="pc-link">
-                                        <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
-                                        <span class="pc-mtext">HKI</span>
-
-                                    </a>
+                            </a>
                         </li>
 
                     </ul>
@@ -195,9 +187,6 @@
                         <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="material-icons-two-tone">menu</i></a></li>
                         <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="material-icons-two-tone">menu</i></a></li>
 
-                        <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="material-icons-two-tone">menu</i></a></li>
-                        <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="material-icons-two-tone">menu</i></a></li>
-
                     </ul>
                 </div>
                 <!-- [Mobile Media Block end] -->
@@ -208,7 +197,6 @@
 
                             <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="user-avtar"> <span class="ms-2"><span class="user-name"><?= word_limiter($user->nama, 4) ?></span>
 
-                                    <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="user-avtar"> <span class="ms-2"><span class="user-name"><?= word_limiter($user->nama, 4) ?></span>
 
                                             <span class="user-desc"><?= $user->nama_role ?></span></span></a>
                                     <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
@@ -244,14 +232,6 @@
                                                                             </span></a>
 
                                                                         <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> <span>Keluar</span>
-
-                                                                                <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-user-edit"></i> <span>Edit Profile</span>
-                                                                                    </span></a>
-
-                                                                                <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-key"></i> <span>Edit Password</span>
-                                                                                    </span></a>
-
-                                                                                <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> <span>Keluar</span>
 
                                                                                     </span></a>
 
