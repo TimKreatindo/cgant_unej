@@ -207,13 +207,7 @@
 
                                             <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
                                                 <ul class="list-group list-group-flush w-100">
-                                                    <li class="list-group-item">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="flex-shrink-0"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="wid-50 rounded-circle"></div>
-
-                                                            <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
-                                                                <ul class="list-group list-group-flush w-100">
-                                                                    <li class="list-group-item">
+                                                            <li class="list-group-item">
                                                                         <div class="d-flex align-items-center">
                                                                             <div class="flex-shrink-0"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="wid-50 rounded-circle"></div>
 
@@ -237,10 +231,8 @@
 
 
 
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+                                                                    </li>  
+                                                </ul>
                                             </div>
                         </li>
 
@@ -346,81 +338,9 @@
             }
         }
         ?>
-        <script>
-            const base_url = '<?= base_url() ?>'
-
-            function loading_animation() {
-                Swal.fire({
-                    title: 'Loading..',
-                    html: 'Please wait..',
-                    timerProgressBar: true,
-                    draggable: true,
-                    allowOutsideClick: false,
-                    didOpen: () => {
-                        Swal.showLoading()
-                    },
-                })
-            }
-
-            function regenerate_token(token) {
-                const c_name = '<?= $this->security->get_csrf_token_name() ?>'
-                $('input[name="' + c_name + '"]').val(token)
-            }
-
-            function error_alert(msg) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: msg
-                })
-            }
-
-            function error_alert_reloaded(msg) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: msg
-                }).then((res) => {
-                    window.location.reload()
-                })
-            }
-
-            function success_alert(msg) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: msg
-                })
-            }
-
-            function success_alert_reloaded(msg) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: msg
-                }).then((res) => {
-                    window.location.reload()
-                })
-            }
-        </script>
-        <?php
-        if (isset($js)) {
-            foreach ($js as $j) {
-                echo '<script src="' . base_url('assets/js/admin/') . $j . '"></script>';
-            }
-        }
-
-        ?>
 
 
         <script>
-            layout_change('light');
-            layout_sidebar_change('dark');
-            change_box_container('false');
-            layout_caption_change('true');
-            layout_rtl_change('false');
-            preset_change('preset-1');
-
             layout_change('light');
             layout_sidebar_change('dark');
             change_box_container('false');
