@@ -49,11 +49,6 @@
                             <td><?= $d->tahun ?></td>
                             <td><?= $d->level ?></td>
 
-                            <td><?= $decode_indeks->scopus . '<br>' . $decode_indeks->wos . '<br>' . $decode_indeks->sinta ?>
-                            </td>
-
-                            <td><?= $d->indeks ?></td>
-
                             <td><?= $d->indeks ?></td>
 
                             <td><?= $bukti ?></td>
