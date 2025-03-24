@@ -21,8 +21,6 @@
                     foreach ($data as $d) {
                         $decode_bukti = json_decode($d->bukti);
 
-                        $decode_indeks = json_decode($d->indeks);
-
 
                         if ($decode_bukti->type == 'file') {
                             $li_bukti = '';
@@ -33,9 +31,7 @@
                         } else {
                             $bukti = '<a href="' . $decode_bukti->url . '" target="_blank">Link</a>';
                         };
-
-                        $decode_indeks->wos;
-                        $decode_indeks->sinta;
+                        
 
 
 
