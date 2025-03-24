@@ -47,11 +47,6 @@ class Ajax_publikasi extends CI_Controller
                     ];
                 }
 
-                $data_indeks = [
-                    'scopus' => $input_post['scopus'],
-                    'wos' => $input_post['wos'],
-                    'sinta' => $input_post['sinta']
-                ];
 
                 $data_insert = [
                     'id_user' => $user->id,

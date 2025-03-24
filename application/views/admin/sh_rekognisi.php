@@ -6,8 +6,6 @@
         <div class="card">
             <div class="card-body table-responsive">
 
-<<<<<<< HEAD
-=======
                 <div class="row align-items-center">
                     <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                         <?= form_open('admin/get-master', 'id="form-get-master1"') ?>
@@ -23,8 +21,6 @@
                         <?= form_close() ?>
                     </div>
                 </div>
-
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                 <table class="table table-bordered table-sm" id="main-table">
                     <thead>
                         <tr class="table-secondary">
@@ -45,8 +41,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -61,13 +56,10 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
 </div>
 
 
-<div class="modal" id="modalMaster1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal" id="modalMaster1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -98,8 +90,7 @@
 </div>
 
 
-<div class="modal" id="modalMaster2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal" id="modalMaster2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -127,5 +118,4 @@
             <?= form_close() ?>
         </div>
     </div>
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
 </div>

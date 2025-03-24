@@ -55,14 +55,11 @@ function check_tipe_bukti(vall, from) {
 	}
 }
 
-<<<<<<< HEAD
-=======
-$('#indeks').change(function(){
-	var level = $(this).find('option:selected').data('level');
-	$('#level').val(level)
-})
+$("#indeks").change(function () {
+	var level = $(this).find("option:selected").data("level");
+	$("#level").val(level);
+});
 
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
 //
 //
 //
@@ -78,14 +75,14 @@ function add_data() {
 	$("#jurnal").val("");
 	$("#year").val("");
 	$("#level").val("");
-<<<<<<< HEAD
+
 	$("#scopus").val("");
 	$("#wos").val("");
 	$("#sinta").val("");
-=======
-	$('#indeks').val('')
 
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
+	$("#indeks").val("");
+
+	$("#indeks").val("");
 
 	check_tipe_bukti(null, "add");
 	$("#tipe_bukti").val("");
@@ -208,14 +205,14 @@ $(".act-edit").submit(function (e) {
 					$("#jurnal").val(main_data.jurnal);
 					$("#year").val(main_data.tahun);
 					$("#level").val(main_data.level);
-<<<<<<< HEAD
+
 					$("#scopus").val(main_data.indeks.scopus);
 					$("#wos").val(main_data.indeks.wos);
 					$("#sinta").val(main_data.indeks.sinta);
-=======
-					$('#indeks').val(main_data.indeks)
 
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
+					$("#indeks").val(main_data.indeks);
+
+					$("#indeks").val(main_data.indeks);
 
 					$("#id_modal").val(main_data.id);
 					$("#act_modal").val("edit");

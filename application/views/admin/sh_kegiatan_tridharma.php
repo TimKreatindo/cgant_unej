@@ -8,14 +8,11 @@
         <div class="card">
             <div class="card-body table-responsive">
 
-<<<<<<< HEAD
-=======
                 <?= form_open('admin/get-master', 'id="form-get-master"') ?>
                 <input type="hidden" name="act" value="kegiatan-tridharma">
                 <button class="btn btn-sm btn-primary mb-3" type="submit">Master Jenis Kegiatan</button>
                 <?= form_close() ?>
 
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                 <table class="table table-sm table-bordered" id="main-table">
                     <thead>
                         <tr class="table-secondary">
@@ -36,8 +33,7 @@
 
 
 <!-- Modal -->
-<div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -52,20 +48,17 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
 </div>
 
 
-<div class="modal" id="modalMaster1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal" id="modalMaster1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <h1 class="modal-title fs-5 text-light" id="staticBackdropLabel">Master Jenis Kegiatan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <?= form_open('admin/add-master','id="form-modal-master"') ?>
+            <?= form_open('admin/add-master', 'id="form-modal-master"') ?>
             <input type="hidden" name="act" value="kegiatan-tridharma">
             <div class="modal-body table-responsive">
                 <table class="table table-bordered table-sm" id="table-modal-master1">
@@ -88,5 +81,5 @@
             <?= form_close() ?>
         </div>
     </div>
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
+
 </div>

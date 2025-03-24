@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="<?= base_url('template/admin') ?>/fonts/fontawesome.css">
     <link rel="stylesheet" href="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.css') ?>">
-<<<<<<< HEAD
+
     <link rel="stylesheet" href="<?= base_url('template/client/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') ?>">
 
 
@@ -22,20 +22,15 @@
         .list_uploaded {
             border: 1px solid #a6a5c7;
         }
-=======
-    <link rel="stylesheet"
-        href="<?= base_url('template/client/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') ?>">
 
 
-    <style>
-    .list_uploaded {
-        border: 1px solid #a6a5c7;
-    }
+        .list_uploaded {
+            border: 1px solid #a6a5c7;
+        }
 
-    .list-dosen {
-      border: 1px solid #a6a5c7;
-    }
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
+        .list-dosen {
+            border: 1px solid #a6a5c7;
+        }
     </style>
 </head>
 
@@ -47,27 +42,20 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo w-100">
-<<<<<<< HEAD
+
                             <a href=""><img width="65px" style="height: 60px" src="<?= base_url('assets/img/web/logo.png') ?>" alt="Logo"></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
                                 <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path>
-=======
-                            <a href=""><img width="65px" style="height: 60px"
-                                    src="<?= base_url('assets/img/web/logo.png') ?>" alt="Logo"></a>
+
+                                    <a href=""><img width="65px" style="height: 60px" src="<?= base_url('assets/img/web/logo.png') ?>" alt="Logo"></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20"
-                                height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
-                                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2"
-                                        opacity=".3"></path>
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
+                                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path>
                                     <g transform="translate(-210 -1)">
                                         <path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path>
                                         <circle cx="220.5" cy="11.5" r="4"></circle>
@@ -77,13 +65,14 @@
                                 </g>
                             </svg>
                             <div class="form-check form-switch fs-6">
-<<<<<<< HEAD
-                                <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
-=======
-                                <input class="form-check-input  me-0" type="checkbox" id="toggle-dark"
-                                    style="cursor: pointer">
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
-                                <label class="form-check-label"></label>
+                                <<<<<<< HEAD <<<<<<< HEAD <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                                    =======
+                                    <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                                    >>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
+                                    =======
+                                    <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                                    >>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
+                                    <label class="form-check-label"></label>
                             </div>
                         </div>
                         <div class="sidebar-toggler  x">
@@ -136,30 +125,26 @@
                             </a>
                         </li>
 
-<<<<<<< HEAD
                         <!-- <li class="sidebar-item">
                             <a href="<?= base_url('client/haki') ?>" class='sidebar-link'>
                                 <i class="far fa-folder"></i>
                                 <span>HAKI</span>
                             </a>
-                        </li>
+                            </li>
 
-                        <li class="sidebar-item">
-=======
-                         <li class="sidebar-item">
-                            <a href="<?= base_url('client/hki') ?>" class='sidebar-link'>
-                                <i class="far fa-folder"></i>
-                                <span>HKI</span>
-                            </a>
-                        </li>
+                            <li class="sidebar-item">
+                                <a href="<?= base_url('client/hki') ?>" class='sidebar-link'>
+                                    <i class="far fa-folder"></i>
+                                    <span>HKI</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
 
-                        <!-- <li class="sidebar-item">
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
-                            <a href="<?= base_url('client/hibah-penelitian') ?>" class='sidebar-link'>
-                                <i class="far fa-folder"></i>
-                                <span>Hibah Penelitian</span>
-                            </a>
-                        </li> -->
+                                <a href="<?= base_url('client/hibah-penelitian') ?>" class='sidebar-link'>
+                                    <i class="far fa-folder"></i>
+                                    <span>Hibah Penelitian</span>
+                                </a>
+                            </li> -->
 
                         <li class="sidebar-item">
                             <a href="<?= base_url('client/seminar-webinar') ?>" class='sidebar-link'>
@@ -254,7 +239,6 @@
     <script src="<?= base_url('template/client/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') ?>">
     </script>
     <script>
-<<<<<<< HEAD
         const base_url = '<?= base_url() ?>'
 
         function loading_animation() {
@@ -319,6 +303,15 @@
         }
     }
     ?>
+
+    <script src="<?= base_url('assets/js/file.js') ?>"></script>
+    <?php
+    if (isset($js)) {
+        foreach ($js as $j) {
+            echo '<script src="' . base_url('assets/js/client/') . $j . '"></script>';
+        }
+    }
+    ?>
     <script>
         $(document).ready(function() {
             var currentUrl = window.location.href;
@@ -328,87 +321,8 @@
                 }
             });
         });
-=======
-    const base_url = '<?= base_url() ?>'
-
-    function loading_animation() {
-        Swal.fire({
-            title: 'Loading..',
-            html: 'Please wait..',
-            timerProgressBar: true,
-            draggable: true,
-            allowOutsideClick: false,
-            didOpen: () => {
-                Swal.showLoading()
-            },
-        })
-    }
-
-    function regenerate_token(token) {
-        const c_name = '<?= $this->security->get_csrf_token_name() ?>'
-        $('input[name="' + c_name + '"]').val(token)
-    }
-
-    function error_alert(msg) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: msg
-        })
-    }
-
-    function error_alert_reloaded(msg) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: msg
-        }).then((res) => {
-            window.location.reload()
-        })
-    }
-
-    function success_alert(msg) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: msg
-        })
-    }
-
-    function success_alert_reloaded(msg) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: msg
-        }).then((res) => {
-            window.location.reload()
-        })
-    }
-    </script>
-    <script src="<?= base_url('assets/js/file.js') ?>"></script>
-    <?php
-        if(isset($js)){
-            foreach($js as $j){
-                echo '<script src="'.base_url('assets/js/client/').$j.'"></script>';
-            }
-        }
-    ?>
-    <script>
-    $(document).ready(function() {
-        var currentUrl = window.location.href;
-        $('.menu .sidebar-link').each(function() {
-            if (this.href === currentUrl) {
-                $(this).parent('.sidebar-item').addClass('active');
-            }
-        });
-    });
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
     </script>
 
 </body>
 
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
