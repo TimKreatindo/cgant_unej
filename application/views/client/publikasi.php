@@ -20,7 +20,10 @@
                         $i = 1;
                         foreach($data as $d){
                             $decode_bukti = json_decode($d->bukti);
+<<<<<<< HEAD
                             $decode_indeks = json_decode($d->indeks);
+=======
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                             
                             if($decode_bukti->type == 'file'){
                                 $li_bukti = '';
@@ -33,9 +36,15 @@
                             } 
 
                            ;
+<<<<<<< HEAD
                             $decode_indeks->wos;
                             $decode_indeks->sinta;
                             
+=======
+
+
+
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
 
 
                             
@@ -46,8 +55,12 @@
                         <td><?= $d->jurnal ?></td>
                         <td><?= $d->tahun ?></td>
                         <td><?= $d->level ?></td>
+<<<<<<< HEAD
                         <td><?=  $decode_indeks->scopus .'<br>' . $decode_indeks->wos .'<br>'. $decode_indeks->sinta ?>
                         </td>
+=======
+                        <td><?= $d->indeks ?></td>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                         <td><?= $bukti ?></td>
                         <td>
                             <?= form_open('client/validasi-publikasi', 'class="act-edit my-1"') ?>
@@ -110,6 +123,7 @@
                     </select>
                 </div>
 
+<<<<<<< HEAD
                 <div class="form-group my-3">
                     <label><b>Tingkat</b></label>
                     <select name="level" id="level" class="form-control" required>
@@ -159,6 +173,20 @@
                         </div>
                     </div>
 
+=======
+               
+                <div class="form-group my-3">
+                    <label><b>Indeksasi</b></label>
+                    <select class="form-control" name="indeks" id="indeks" required>
+                        <option value="">--pilih--</option>
+                        <?php
+                            foreach($indeks as $key){
+                                echo '<option data-level="'.$key->level.'" value="'.$key->indeks.'">'.$key->indeks.'</option>';
+                            }
+                        ?>
+                    </select>
+                    <input type="hidden" name="level" id="level">
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
 
                 </div>
 

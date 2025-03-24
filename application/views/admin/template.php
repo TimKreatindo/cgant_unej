@@ -7,8 +7,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
     <meta name="description" content="Dashboardkit is trending dashboard template made using Bootstrap 5 design framework. Dashboardkit is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies.">
     <meta name="keywords" content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
+=======
+    <meta name="description"
+        content="Dashboardkit is trending dashboard template made using Bootstrap 5 design framework. Dashboardkit is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies.">
+    <meta name="keywords"
+        content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
     <meta name="author" content="Codedthemes">
     <!-- [Favicon] icon -->
     <link rel="icon" href="<?= base_url('assets/img/web/logo.png') ?>" type="image/x-icon">
@@ -27,6 +34,7 @@
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="<?= base_url('template/admin') ?>/css/style.css" id="main-style-link">
     <link rel="stylesheet" href="<?= base_url('template/client/extensions/sweetalert2/sweetalert2.min.css') ?>">
+<<<<<<< HEAD
     <link rel="stylesheet" href="<?= base_url('template/client/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/lib/style.css') ?>">
     <style>
@@ -37,6 +45,20 @@
 </head>
 
 <body data-pc-preset="preset-1" data-pc-sidebar-theme="dark" data-pc-header-theme="light" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+=======
+    <link rel="stylesheet"
+        href="<?= base_url('template/client/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/lib/style.css') ?>">
+    <style>
+    .list_uploaded {
+        border: 1px solid #a6a5c7;
+    }
+    </style>
+</head>
+
+<body data-pc-preset="preset-1" data-pc-sidebar-theme="dark" data-pc-header-theme="light" data-pc-sidebar-caption="true"
+    data-pc-direction="ltr" data-pc-theme="light">
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
     <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="pc-loader">
@@ -145,9 +167,15 @@
                     </li>
 
                     <li class="pc-item">
+<<<<<<< HEAD
                         <a href="<?= base_url('admin/data-lab') ?>" class='pc-link'>
                             <span class="pc-micon"><i class="fas fa-flask"></i> </span>
                             <span class="pc-mtext">Data Laboratorium</span>
+=======
+                        <a href="<?= base_url('admin/hki') ?>" class="pc-link">
+                            <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                            <span class="pc-mtext">HKI</span>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                         </a>
                     </li>
 
@@ -163,8 +191,15 @@
             <div class="me-auto pc-mob-drp">
                 <ul class="list-unstyled">
                     <!-- ======= Menu collapse Icon ===== -->
+<<<<<<< HEAD
                     <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="material-icons-two-tone">menu</i></a></li>
                     <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="material-icons-two-tone">menu</i></a></li>
+=======
+                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i
+                                class="material-icons-two-tone">menu</i></a></li>
+                    <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i
+                                class="material-icons-two-tone">menu</i></a></li>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                 </ul>
             </div>
             <!-- [Mobile Media Block end] -->
@@ -172,18 +207,37 @@
                 <ul class="list-unstyled">
 
                     <li class="dropdown pc-h-item header-user-profile">
+<<<<<<< HEAD
                         <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="user-avtar"> <span class="ms-2"><span class="user-name"><?= word_limiter($user->nama, 4) ?></span>
+=======
+                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false"><img
+                                src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image"
+                                class="user-avtar"> <span class="ms-2"><span
+                                    class="user-name"><?= word_limiter($user->nama, 4) ?></span>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                                 <span class="user-desc"><?= $user->nama_role ?></span></span></a>
                         <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
                             <div class="dropdown-header d-flex align-items-center justify-content-between">
                                 <h4 class="m-0">Profile</h4>
                             </div>
                             <div class="dropdown-body">
+<<<<<<< HEAD
                                 <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
                                     <ul class="list-group list-group-flush w-100">
                                         <li class="list-group-item">
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-shrink-0"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="wid-50 rounded-circle"></div>
+=======
+                                <div class="profile-notification-scroll position-relative"
+                                    style="max-height: calc(100vh - 225px)">
+                                    <ul class="list-group list-group-flush w-100">
+                                        <li class="list-group-item">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0"><img
+                                                        src="<?= base_url('assets/img/profile/' . $user->image) ?>"
+                                                        alt="user-image" class="wid-50 rounded-circle"></div>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                                                 <div class="flex-grow-1 mx-3">
                                                     <h5 class="mb-0"><?= $user->nama ?></h5>
                                                     <a class="text-sm link-secondary" href="#!"><?= $user->nip ?></a>
@@ -191,6 +245,7 @@
                                             </div>
                                         </li>
                                         <li class="list-group-item">
+<<<<<<< HEAD
                                             <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-user-edit"></i> <span>Edit Profile</span>
                                                 </span></a>
 
@@ -198,6 +253,19 @@
                                                 </span></a>
 
                                             <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> <span>Keluar</span>
+=======
+                                            <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i
+                                                        class="fas fa-user-edit"></i> <span>Edit Profile</span>
+                                                </span></a>
+
+                                            <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i
+                                                        class="fas fa-key"></i> <span>Edit Password</span>
+                                                </span></a>
+
+                                            <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><span
+                                                    class="d-flex align-items-center"><i
+                                                        class="fas fa-sign-out-alt"></i> <span>Keluar</span>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                                                 </span></a>
 
 
@@ -248,6 +316,7 @@
     </script>
     <script src="<?= base_url('assets/js/file.js') ?>"></script>
     <script>
+<<<<<<< HEAD
         const base_url = '<?= base_url() ?>'
 
         function loading_animation() {
@@ -310,16 +379,89 @@
             echo '<script src="' . base_url('assets/js/admin/') . $j . '"></script>';
         }
     }
+=======
+    const base_url = '<?= base_url() ?>'
+
+    function loading_animation() {
+        Swal.fire({
+            title: 'Loading..',
+            html: 'Please wait..',
+            timerProgressBar: true,
+            draggable: true,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading()
+            },
+        })
+    }
+
+    function regenerate_token(token) {
+        const c_name = '<?= $this->security->get_csrf_token_name() ?>'
+        $('input[name="' + c_name + '"]').val(token)
+    }
+
+    function error_alert(msg) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: msg
+        })
+    }
+
+    function error_alert_reloaded(msg) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: msg
+        }).then((res) => {
+            window.location.reload()
+        })
+    }
+
+    function success_alert(msg) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: msg
+        })
+    }
+
+    function success_alert_reloaded(msg) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: msg
+        }).then((res) => {
+            window.location.reload()
+        })
+    }
+    </script>
+    <?php
+        if(isset($js)){
+            foreach($js as $j){
+                echo '<script src="'.base_url('assets/js/admin/').$j.'"></script>';
+            }
+        }
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
     ?>
 
 
     <script>
+<<<<<<< HEAD
         layout_change('light');
         layout_sidebar_change('dark');
         change_box_container('false');
         layout_caption_change('true');
         layout_rtl_change('false');
         preset_change('preset-1');
+=======
+    layout_change('light');
+    layout_sidebar_change('dark');
+    change_box_container('false');
+    layout_caption_change('true');
+    layout_rtl_change('false');
+    preset_change('preset-1');
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
     </script>
 </body>
 

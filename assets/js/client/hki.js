@@ -1,13 +1,103 @@
-$(document).ready(function () {
-	$("#main-table").dataTable({
-		ordering: false,
-	});
-});
+$(document).ready(function(){
+  $('#selectDosen').on('show.bs.modal', function(){
+    $("#staticBackdrop").modal("hide");
+    load_list_dosen()
+  })
 
-$("#tipe_bukti").change(function () {
-	let vall = $(this).val();
-	check_tipe_bukti(vall);
-});
+  $('#selectDosen').on('hidden.bs.modal', function(){
+    $("#staticBackdrop").modal("show");
+  })
+
+  $("#main-table").dataTable();
+})
+
+function add_data() {
+	$("#staticBackdrop").modal("show");
+	$("#staticBackdrop .modal-title").html("Tambah Data");
+
+	$("#id_modal").val("");
+	$("#act_modal").val("add");
+
+	$("#jurnal").val("");
+	$("#no_hki").val("");
+	$("#tanggal").val("");
+
+	$("#tipe_bukti").val("");
+	$("#bukti_url").val("");
+	$("#bukti_files").val("");
+
+	$("#container_file").html("");
+	check_tipe_bukti(null, "add");
+	$("#preview_bukti").addClass("d-none");
+	$("#container_preview_bukti").html("");
+  $('#append-list-dosen').html('')
+}
+
+function add_list_dosen(){
+  $('#selectDosen').modal('show')
+}
+
+function load_list_dosen(){
+  let all_form = $("#form-modal").serializeArray();
+  let has_selected = [];
+	for (let i = 0; i < all_form.length; i++) {
+		if (all_form[i].name == "dosen[]") {
+			has_selected.push(all_form[i].value);
+		}
+	}
+
+  $("#table-list-dosen").DataTable().destroy();
+	$("#table-list-dosen").dataTable({
+		processing: true,
+		serverSide: true,
+		order: [],
+		ajax: {
+			url: base_url + "client/datatable-list-dosen",
+			type: "POST",
+      data: {
+        selected: has_selected
+      }
+		},
+		columnDefs: [
+			{
+				target: [0, 1, 2, 3],
+				classname: "text-center text-nowrap",
+			},
+		],
+		ordering: false,
+		iDisplayLength: 10,
+		autoWidth: false,
+	});
+}
+
+$(document).on('click', '.btn-select-dosen', function(){
+  const id = $(this).data('id')
+  const name = $(this).data('name')
+  const nip = $(this).data('nip')
+
+  $(this).removeClass('btn-warning');
+  $(this).addClass('btn-success');
+  $(this).attr('disabled', true);
+
+  let html = `<div class="list-dosen row g-0 align-items-center p-2 my-2">
+                <div class="col-10">
+                  <span>
+                    ${name} (${nip})
+                  </span>
+                  <input type="hidden" name="dosen[]" value="${id}">
+                </div>
+                <div class="col-2 text-end">
+                  <button type="button" class="btn btn-sm btn-danger rm-list-dosen" name="button">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </div>
+              </div>`;
+    $('#append-list-dosen').append(html)
+})
+
+$(document).on('click', '.rm-list-dosen', function(){
+  $(this).parent('div').parent('div').remove()
+})
 
 function check_tipe_bukti(vall, from) {
 	if (from == "edit") {
@@ -55,46 +145,10 @@ function check_tipe_bukti(vall, from) {
 	}
 }
 
-<<<<<<< HEAD
-=======
-$('#indeks').change(function(){
-	var level = $(this).find('option:selected').data('level');
-	$('#level').val(level)
-})
-
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
-//
-//
-//
-
-function add_data() {
-	$("#staticBackdrop").modal("show");
-	$("#staticBackdrop .modal-title").html("Tambah Data");
-
-	$("#id_modal").val("");
-	$("#act_modal").val("add");
-
-	$("#judul").val("");
-	$("#jurnal").val("");
-	$("#year").val("");
-	$("#level").val("");
-<<<<<<< HEAD
-	$("#scopus").val("");
-	$("#wos").val("");
-	$("#sinta").val("");
-=======
-	$('#indeks').val('')
-
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
-
-	check_tipe_bukti(null, "add");
-	$("#tipe_bukti").val("");
-	$("#bukti_url").val("");
-	$("#bukti_files").val("");
-	$("#container_file").html("");
-	$("#preview_bukti").addClass("d-none");
-	$("#container_preview_bukti").html("");
-}
+$("#tipe_bukti").change(function () {
+	let vall = $(this).val();
+	check_tipe_bukti(vall);
+});
 
 $("#form-modal").submit(function (e) {
 	e.preventDefault();
@@ -122,25 +176,28 @@ $("#form-modal").submit(function (e) {
 				Swal.close();
 
 				if (d.status == false) {
-					if (d.type) {
-						if (d.type == "err_upload") {
-							let msg = "";
-							for (let i = 0; i < d.msg.length; i++) {
-								msg += d.msg[i]["error"] + "<br>";
-							}
-
-							Swal.fire({
-								icon: "error",
-								title: "Error",
-								html: msg,
-							}).then((res) => {
-								$("#staticBackdrop").modal("show");
-							});
-						} else if (d.type == "err_result") {
-							error_alert(d.msg);
-							$("#staticBackdrop").modal("show");
+					if (d.type == "err_upload") {
+						let msg = "";
+						for (let i = 0; i < d.msg.length; i++) {
+							msg += d.msg[i]["error"] + "<br>";
 						}
-					} else {
+
+						Swal.fire({
+							icon: "error",
+							title: "Error",
+							html: msg,
+						}).then((res) => {
+							$("#staticBackdrop").modal("show");
+						});
+					} else if(d.type == 'err_validation'){
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              html: d.msg,
+            }).then((res) => {
+              $("#staticBackdrop").modal("show");
+            });
+          } else {
 						error_alert(d.msg);
 						$("#staticBackdrop").modal("show");
 					}
@@ -172,10 +229,12 @@ $(".act-edit").submit(function (e) {
 				Swal.close();
 
 				if (d.status == false) {
-					erorr_alert(d.msg);
+					error_alert(d.msg);
 				} else {
 					const bukti = d.data.bukti;
 					const main_data = d.data;
+          const dosen_contribute = d.data.user_info;
+
 
 					if (bukti.type == "file") {
 						const bukti_file = bukti.data;
@@ -201,24 +260,38 @@ $(".act-edit").submit(function (e) {
 						$("#preview_bukti").addClass("d-none");
 					}
 
+          let html_dosen = '';
+
 					$("#staticBackdrop").modal("show");
 					$("#staticBackdrop .modal-title").html("Edit Data");
 
-					$("#judul").val(main_data.judul);
-					$("#jurnal").val(main_data.jurnal);
-					$("#year").val(main_data.tahun);
-					$("#level").val(main_data.level);
-<<<<<<< HEAD
-					$("#scopus").val(main_data.indeks.scopus);
-					$("#wos").val(main_data.indeks.wos);
-					$("#sinta").val(main_data.indeks.sinta);
-=======
-					$('#indeks').val(main_data.indeks)
-
->>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
-
 					$("#id_modal").val(main_data.id);
 					$("#act_modal").val("edit");
+
+          for (let i = 0; i < dosen_contribute.length; i++) {
+            html_dosen += `<div class="list-dosen row g-0 align-items-center p-2 my-2">
+                          <div class="col-10">
+                            <span>
+                              ${dosen_contribute[i].dosen}
+                            </span>
+                            <input type="hidden" name="dosen[]" value="${dosen_contribute[i].id}">
+                          </div>
+                          <div class="col-2 text-end">
+                            <button type="button" class="btn btn-sm btn-danger rm-list-dosen" name="button">
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>`;
+          }
+          $('#append-list-dosen').html(html_dosen)
+
+
+
+          $("#jurnal").val(main_data.judul);
+          $("#no_hki").val(main_data.no_hki);
+          $("#tanggal").val(main_data.tanggal);
+
+
 
 					$("#tipe_bukti").val(bukti.type);
 					check_tipe_bukti(bukti.type, "edit");
@@ -253,9 +326,9 @@ $(".act-delete").submit(function (e) {
 				},
 				success: function (d) {
 					regenerate_token(d.token);
-
 					setTimeout(() => {
 						Swal.close();
+
 						if (d.status == false) {
 							error_alert(d.msg);
 						} else {

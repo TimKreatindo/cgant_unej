@@ -249,6 +249,7 @@ class Ajax_kerjasama extends CI_Controller
                 $bukti = '<a href="' . $encode_bukti->url . '" target="_blank">Link</a>';
             }
 
+
             $row = [];
 
             $row[] = $i++;

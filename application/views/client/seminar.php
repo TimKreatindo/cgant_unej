@@ -15,11 +15,19 @@
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                     <?php  
                         $i = 1;
                         foreach($data as $d){
                         $decode_date = json_decode($d->tanggal_kegiatan);
                         
+=======
+                    <?php
+                        $i = 1;
+                        foreach($data as $d){
+                        $decode_date = json_decode($d->tanggal_kegiatan);
+
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                         if($decode_date->start == $decode_date->end){
                             $c_date = date_create($decode_date->start);
                             $shown_date = date_format($c_date, 'd F Y');
@@ -104,10 +112,18 @@
                     <label><b>Jenis Kegiatan</b></label>
                     <select name="jenis_kegiatan" id="jenis_kegiatan" class="form-control" required>
                         <option value="">--pilih--</option>
+<<<<<<< HEAD
                         <option value="Kolokium">Kolokium</option>
                         <option value="Webinar">Webinar</option>
                         <option value="Seminar">Seminar</option>
                         <option value="Workshop">Workshop</option>
+=======
+                        <?php
+                          foreach ($kegiatan as $key) {
+                            echo '<option value="'.$key.'">'.$key.'</option>';
+                          }
+                        ?>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                     </select>
                 </div>
 
@@ -115,9 +131,17 @@
                     <label><b>Jenis Partisipasi</b></label>
                     <select name="jenis_partisipasi" id="jenis_partisipasi" class="form-control" required>
                         <option value="">--pilih--</option>
+<<<<<<< HEAD
                         <option value="Presenter">Presenter</option>
                         <option value="Speaker">Speaker</option>
                         <option value="Moderator">Moderator</option>
+=======
+                        <?php
+                          foreach ($partisipasi as $key) {
+                            echo '<option value="'.$key.'">'.$key.'</option>';
+                          }
+                        ?>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
                     </select>
                 </div>
 
@@ -216,4 +240,8 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a

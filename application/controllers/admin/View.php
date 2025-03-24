@@ -107,4 +107,65 @@ class View extends CI_Controller
         ];
         $this->load->view('admin/template', $data);
     }
+
+
+    public function sertifikat()
+    {
+        $data = [
+            'title' => 'Sertifikat Kompetensi',
+            'view' => 'admin/sh_sertifikat',
+            'user' => $this->user,
+            'js' => ['sh_sertifikat.js']
+        ];
+
+        $this->load->view('admin/template', $data);
+    }
+
+    public function publikasi()
+    {
+        $data = [
+            'title' => 'Publikasi',
+            'view' => 'admin/sh_publikasi',
+            'user' => $this->user,
+            'js' => ['sh_publikasi.js']
+        ];
+
+        $this->load->view('admin/template', $data);
+    }
+
+    public function jurnal()
+    {
+        $data = [
+            'title' => 'Jurnal',
+            'view' => 'admin/sh_jurnal',
+            'user' => $this->user,
+            'js' => ['sh_jurnal.js']
+        ];
+
+        $this->load->view('admin/template', $data);
+    }
+
+    public function organisasi()
+    {
+        $data = [
+            'title' => 'Organisasi',
+            'view' => 'admin/sh_organisasi',
+            'user' => $this->user,
+            'js' => ['sh_organisasi.js']
+        ];
+
+        $this->load->view('admin/template', $data);
+    }
+
+    public function hki()
+    {
+        $data = [
+            'title' => 'HKI',
+            'view' => 'admin/sh_hki',
+            'user' => $this->user,
+            'js' => ['sh_hki.js']
+        ];
+
+        $this->load->view('admin/template', $data);
+    }
 }
