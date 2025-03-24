@@ -42,7 +42,6 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo w-100">
-
                             <a href=""><img width="65px" style="height: 60px" src="<?= base_url('assets/img/web/logo.png') ?>" alt="Logo"></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -65,14 +64,8 @@
                                 </g>
                             </svg>
                             <div class="form-check form-switch fs-6">
-                                <<<<<<< HEAD <<<<<<< HEAD <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
-                                    =======
-                                    <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
-                                    >>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
-                                    =======
-                                    <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
-                                    >>>>>>> 85dbd2518b7e8245bd8416a5c18272a2826ade8a
-                                    <label class="form-check-label"></label>
+                                <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                                <label class="form-check-label"></label>
                             </div>
                         </div>
                         <div class="sidebar-toggler  x">
@@ -295,15 +288,6 @@
             })
         }
     </script>
-    <script src="<?= base_url('assets/js/file.js') ?>"></script>
-    <?php
-    if (isset($js)) {
-        foreach ($js as $j) {
-            echo '<script src="' . base_url('assets/js/client/') . $j . '"></script>';
-        }
-    }
-    ?>
-
     <script src="<?= base_url('assets/js/file.js') ?>"></script>
     <?php
     if (isset($js)) {
