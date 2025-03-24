@@ -16,12 +16,7 @@
                 </thead>
                 <tbody>
 
-                    <?php  
-                        $i = 1;
-                        foreach($data as $d){
-                        $decode_date = json_decode($d->tanggal_kegiatan);
-                        
-                    ?>
+                    
                     <?php
                         $i = 1;
                         foreach($data as $d){
