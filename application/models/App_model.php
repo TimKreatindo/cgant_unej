@@ -1,9 +1,11 @@
 <?php
-defined('BASEPATH')or exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
 
-class App_model extends CI_Model {
-    public function upload_files($param_FILES, $prefix, $upload_path){
+class App_model extends CI_Model
+{
+    public function upload_files($param_FILES, $prefix, $upload_path)
+    {
         $files = $param_FILES;
         $cpt = count($files['name']);
         $upload_data = array();
@@ -15,7 +17,7 @@ class App_model extends CI_Model {
         $config['allowed_types'] = 'svg|jpeg|jpg|png|pdf|doc|docx|xls|xlsx|ppt|pptx';
         $config['max_size'] = 4000;
 
-        for($i = 0; $i < $cpt; $i++){
+        for ($i = 0; $i < $cpt; $i++) {
             $_FILES['bukti']['name'] = $files['name'][$i];
             $_FILES['bukti']['type'] = $files['type'][$i];
             $_FILES['bukti']['tmp_name'] = $files['tmp_name'][$i];
@@ -23,7 +25,7 @@ class App_model extends CI_Model {
             $_FILES['bukti']['size'] = $files['size'][$i];
 
             $this->upload->initialize($config);
-            if($this->upload->do_upload('bukti')){
+            if ($this->upload->do_upload('bukti')) {
                 $res = $this->upload->data();
                 $row = [
                     'status' => true,
@@ -36,7 +38,7 @@ class App_model extends CI_Model {
                     'client_name' => $res['client_name']
                 ];
                 $upload_data[] = $row;
-            } else {   
+            } else {
                 $row = [
                     'status' => false,
                     'error' => $this->upload->display_errors('', '') . ' (' . $files['name'][$i] . ')',
@@ -54,32 +56,34 @@ class App_model extends CI_Model {
     }
 
 
-    public function _diff_array_bukti_file($from_input, $from_db){
+    public function _diff_array_bukti_file($from_input, $from_db)
+    {
         //get filename from new file
         $ofu = [];
-        $a = 0; 
-        for($i = 0; $i < count($from_input); $i++){
+        $a = 0;
+        for ($i = 0; $i < count($from_input); $i++) {
             $ofu[] = $from_input[$i];
         }
 
-        
+
         //get filename from old file
         $filtered_array = [];
-        foreach($from_db->data as $of){
-            foreach($ofu as $ou){
-                if($of->file_name == $ou){
+        foreach ($from_db->data as $of) {
+            foreach ($ofu as $ou) {
+                if ($of->file_name == $ou) {
                     $filtered_array[] = $of;
                 }
             }
         }
-        
+
         return $filtered_array;
     }
 
 
-    public function input_data($table, $data){
+    public function input_data($table, $data)
+    {
         $this->db->insert($table, $data);
-        if($this->db->affected_rows() > 0){
+        if ($this->db->affected_rows() > 0) {
             $output = [
                 'status' => true,
                 'msg' => 'Data berhasil disimpan',
@@ -95,9 +99,10 @@ class App_model extends CI_Model {
         json_output($output, 200);
     }
 
-    public function update_data($table, $data, $where, $param){
+    public function update_data($table, $data, $where, $param)
+    {
         $this->db->where($where, $param)->update($table, $data);
-        if($this->db->affected_rows() > 0){
+        if ($this->db->affected_rows() > 0) {
             $output = [
                 'status' => true,
                 'msg' => 'Data berhasil diubah',
@@ -113,9 +118,10 @@ class App_model extends CI_Model {
         json_output($output, 200);
     }
 
-    public function delete_data($table, $where, $param){
+    public function delete_data($table, $where, $param)
+    {
         $this->db->where($where, $param)->delete($table);
-        if($this->db->affected_rows() > 0){
+        if ($this->db->affected_rows() > 0) {
             $output = [
                 'status' => true,
                 'msg' => 'Data berhasil dihapus',
@@ -131,12 +137,14 @@ class App_model extends CI_Model {
         json_output($output, 200);
     }
 
-    public function get_where_data($table, $where, $param){
+    public function get_where_data($table, $where, $param)
+    {
         $data = $this->db->where($where, $param)->get($table);
         return $data;
     }
 
-    public function change_json_file($filename, $data_val){
+    public function change_json_file($filename, $data_val)
+    {
         $json_data = json_encode($data_val, JSON_PRETTY_PRINT);
         $file_path = './application/third_party/json/' . $filename;
 
@@ -156,14 +164,15 @@ class App_model extends CI_Model {
         json_output($params, 200);
     }
 
-    public function get_json_file($filename){
+    public function get_json_file($filename)
+    {
         $file_path = './application/third_party/json/' . $filename;
 
         $get_data = file_get_contents($file_path);
-        if($get_data === false){
+        if ($get_data === false) {
             $params = [
                 'status' => false,
-                'msg' => 'Error reading the file '. $filename,
+                'msg' => 'Error reading the file ' . $filename,
                 'token' => get_token()
             ];
             echo json_encode($params);

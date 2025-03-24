@@ -55,10 +55,10 @@ function check_tipe_bukti(vall, from) {
 	}
 }
 
-$('#indeks').change(function(){
-	var level = $(this).find('option:selected').data('level');
-	$('#level').val(level)
-})
+$("#indeks").change(function () {
+	var level = $(this).find("option:selected").data("level");
+	$("#level").val(level);
+});
 
 //
 //
@@ -75,8 +75,14 @@ function add_data() {
 	$("#jurnal").val("");
 	$("#year").val("");
 	$("#level").val("");
-	$('#indeks').val('')
 
+	$("#scopus").val("");
+	$("#wos").val("");
+	$("#sinta").val("");
+
+	$("#indeks").val("");
+
+	$("#indeks").val("");
 
 	check_tipe_bukti(null, "add");
 	$("#tipe_bukti").val("");
@@ -199,8 +205,14 @@ $(".act-edit").submit(function (e) {
 					$("#jurnal").val(main_data.jurnal);
 					$("#year").val(main_data.tahun);
 					$("#level").val(main_data.level);
-					$('#indeks').val(main_data.indeks)
 
+					$("#scopus").val(main_data.indeks.scopus);
+					$("#wos").val(main_data.indeks.wos);
+					$("#sinta").val(main_data.indeks.sinta);
+
+					$("#indeks").val(main_data.indeks);
+
+					$("#indeks").val(main_data.indeks);
 
 					$("#id_modal").val(main_data.id);
 					$("#act_modal").val("edit");

@@ -15,10 +15,18 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    <?php  
+                        $i = 1;
+                        foreach($data as $d){
+                        $decode_date = json_decode($d->tanggal_kegiatan);
+                        
+                    ?>
                     <?php
                         $i = 1;
                         foreach($data as $d){
                         $decode_date = json_decode($d->tanggal_kegiatan);
+
 
                         if($decode_date->start == $decode_date->end){
                             $c_date = date_create($decode_date->start);
@@ -104,11 +112,18 @@
                     <label><b>Jenis Kegiatan</b></label>
                     <select name="jenis_kegiatan" id="jenis_kegiatan" class="form-control" required>
                         <option value="">--pilih--</option>
+
+                        <option value="Kolokium">Kolokium</option>
+                        <option value="Webinar">Webinar</option>
+                        <option value="Seminar">Seminar</option>
+                        <option value="Workshop">Workshop</option>
+
                         <?php
                           foreach ($kegiatan as $key) {
                             echo '<option value="'.$key.'">'.$key.'</option>';
                           }
                         ?>
+
                     </select>
                 </div>
 
@@ -116,11 +131,17 @@
                     <label><b>Jenis Partisipasi</b></label>
                     <select name="jenis_partisipasi" id="jenis_partisipasi" class="form-control" required>
                         <option value="">--pilih--</option>
+
+                        <option value="Presenter">Presenter</option>
+                        <option value="Speaker">Speaker</option>
+                        <option value="Moderator">Moderator</option>
+
                         <?php
                           foreach ($partisipasi as $key) {
                             echo '<option value="'.$key.'">'.$key.'</option>';
                           }
                         ?>
+
                     </select>
                 </div>
 

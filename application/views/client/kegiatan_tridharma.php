@@ -16,8 +16,14 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    <?php $i=1; foreach($data as $d){ 
+
+                    <?php $i=1; foreach($data as $d){
+
                     <?php $i=1;
                     foreach($data as $d){
+
                         $decode_date = json_decode($d->tanggal_kegiatan);
                         $start_date = $decode_date->start;
                         $end_date = $decode_date->end;
@@ -106,6 +112,9 @@
                     <label><b>Jenis Kegiatan</b></label>
                     <select name="jenis_kegiatan" id="jenis_kegiatan" class="form-control">
                         <option value="">--pilih--</option>
+                        <option value="Seminar Internasional">Seminar Internasional</option>
+                        <option value="Seminar Nasional">Seminar Nasional</option>
+                        <option value="Workshop">Workshop</option>
                         <?php
                           foreach ($kegiatan as $key) {
                             echo '<option value="'.$key.'">'.$key.'</option>';
@@ -173,4 +182,6 @@
             <?= form_close() ?>
         </div>
     </div>
+</div>
+</div>
 </div>

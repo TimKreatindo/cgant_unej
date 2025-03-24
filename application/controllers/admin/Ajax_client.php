@@ -1,28 +1,29 @@
 <?php
-defined('BASEPATH')or exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
-class ajax_client extends CI_Controller {
+class ajax_client extends CI_Controller
+{
 
     //ajax master universal
-    public function add_master_universal(){
+    public function add_master_universal()
+    {
         cek_ajax();
         $act = $this->input->post('act');
         $input_post = $this->input->post(null, true);
-        
 
-        switch($act){
+
+        switch ($act) {
             case 'kegiatan-tridharma':
-                if(!empty($input_post['kegiatan'])){
+                if (!empty($input_post['kegiatan'])) {
                     $kegiatan = $input_post['kegiatan'];
                     $c_kegiatan = count($kegiatan);
 
                     $data_kegiatan = [];
-                    for($i = 0; $i < $c_kegiatan; $i++){
+                    for ($i = 0; $i < $c_kegiatan; $i++) {
                         $data_kegiatan[] = $kegiatan[$i];
                     }
 
                     $this->app->change_json_file('kegiatan_tridharma.json', $data_kegiatan);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -33,17 +34,16 @@ class ajax_client extends CI_Controller {
                 }
                 break;
             case 'kegiatan-seminar':
-                if(!empty($input_post['kegiatan'])){
+                if (!empty($input_post['kegiatan'])) {
                     $kegiatan = $input_post['kegiatan'];
                     $c_kegiatan = count($kegiatan);
 
                     $data_kegiatan = [];
-                    for($i = 0; $i < $c_kegiatan; $i++){
+                    for ($i = 0; $i < $c_kegiatan; $i++) {
                         $data_kegiatan[] = $kegiatan[$i];
                     }
 
                     $this->app->change_json_file('kegiatan_seminar.json', $data_kegiatan);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -54,17 +54,16 @@ class ajax_client extends CI_Controller {
                 }
                 break;
             case 'partisipasi-seminar':
-                if(!empty($input_post['partisipasi'])){
+                if (!empty($input_post['partisipasi'])) {
                     $kegiatan = $input_post['partisipasi'];
                     $c_kegiatan = count($kegiatan);
 
                     $data_kegiatan = [];
-                    for($i = 0; $i < $c_kegiatan; $i++){
+                    for ($i = 0; $i < $c_kegiatan; $i++) {
                         $data_kegiatan[] = $kegiatan[$i];
                     }
 
                     $this->app->change_json_file('partisipasi_seminar.json', $data_kegiatan);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -75,17 +74,16 @@ class ajax_client extends CI_Controller {
                 }
                 break;
             case 'kegiatan-rekognisi':
-                if(!empty($input_post['kegiatan'])){
+                if (!empty($input_post['kegiatan'])) {
                     $kegiatan = $input_post['kegiatan'];
                     $c_kegiatan = count($kegiatan);
 
                     $data_kegiatan = [];
-                    for($i = 0; $i < $c_kegiatan; $i++){
+                    for ($i = 0; $i < $c_kegiatan; $i++) {
                         $data_kegiatan[] = $kegiatan[$i];
                     }
 
                     $this->app->change_json_file('kegiatan_rekognisi.json', $data_kegiatan);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -96,17 +94,16 @@ class ajax_client extends CI_Controller {
                 }
                 break;
             case 'jenis-rekognisi':
-                if(!empty($input_post['rekognisi'])){
+                if (!empty($input_post['rekognisi'])) {
                     $kegiatan = $input_post['rekognisi'];
                     $c_kegiatan = count($kegiatan);
 
                     $data_kegiatan = [];
-                    for($i = 0; $i < $c_kegiatan; $i++){
+                    for ($i = 0; $i < $c_kegiatan; $i++) {
                         $data_kegiatan[] = $kegiatan[$i];
                     }
 
                     $this->app->change_json_file('jenis_rekognisi.json', $data_kegiatan);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -117,17 +114,16 @@ class ajax_client extends CI_Controller {
                 }
                 break;
             case 'jenis-sertifikat':
-                if(!empty($input_post['sertifikat'])){
+                if (!empty($input_post['sertifikat'])) {
                     $kegiatan = $input_post['sertifikat'];
                     $c_kegiatan = count($kegiatan);
 
                     $data_kegiatan = [];
-                    for($i = 0; $i < $c_kegiatan; $i++){
+                    for ($i = 0; $i < $c_kegiatan; $i++) {
                         $data_kegiatan[] = $kegiatan[$i];
                     }
 
                     $this->app->change_json_file('jenis_sertifikat.json', $data_kegiatan);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -138,14 +134,14 @@ class ajax_client extends CI_Controller {
                 }
                 break;
             case 'index-publikasi':
-                if(!empty($input_post['level'])){
+                if (!empty($input_post['level'])) {
                     $level = $input_post['level'];
                     $indeks = $input_post['indeks'];
-                    
+
                     $c_level = count($level);
 
                     $data = [];
-                    for($i = 0; $i < $c_level; $i++){
+                    for ($i = 0; $i < $c_level; $i++) {
                         $row = [
                             'level' => $level[$i],
                             'indeks' => $indeks[$i]
@@ -154,7 +150,6 @@ class ajax_client extends CI_Controller {
                     }
 
                     $this->app->change_json_file('index_publikasi.json', $data);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -165,17 +160,16 @@ class ajax_client extends CI_Controller {
                 }
                 break;
             case 'jabatan-jurnal':
-                if(!empty($input_post['jabatan'])){
+                if (!empty($input_post['jabatan'])) {
                     $kegiatan = $input_post['jabatan'];
                     $c_kegiatan = count($kegiatan);
 
                     $data_kegiatan = [];
-                    for($i = 0; $i < $c_kegiatan; $i++){
+                    for ($i = 0; $i < $c_kegiatan; $i++) {
                         $data_kegiatan[] = $kegiatan[$i];
                     }
 
                     $this->app->change_json_file('jabatan_jurnal.json', $data_kegiatan);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -186,17 +180,16 @@ class ajax_client extends CI_Controller {
                 }
                 break;
             case 'organisasi':
-                if(!empty($input_post['organisasi'])){
+                if (!empty($input_post['organisasi'])) {
                     $kegiatan = $input_post['organisasi'];
                     $c_kegiatan = count($kegiatan);
 
                     $data_kegiatan = [];
-                    for($i = 0; $i < $c_kegiatan; $i++){
+                    for ($i = 0; $i < $c_kegiatan; $i++) {
                         $data_kegiatan[] = $kegiatan[$i];
                     }
 
                     $this->app->change_json_file('organisasi.json', $data_kegiatan);
-
                 } else {
                     $params = [
                         'status' => false,
@@ -209,31 +202,32 @@ class ajax_client extends CI_Controller {
         }
     }
 
-    public function get_master_universal(){
+    public function get_master_universal()
+    {
         cek_ajax();
         $act = $this->input->post('act');
         $input_post = $this->input->post(null, true);
-        
 
-        switch($act){
+
+        switch ($act) {
             case 'kegiatan-tridharma':
                 $data = $this->app->get_json_file('kegiatan_tridharma.json');
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
                 json_output($params, 200);
                 break;
-            
+
             case 'kegiatan-seminar':
                 $data = $this->app->get_json_file('kegiatan_seminar.json');
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
@@ -244,7 +238,7 @@ class ajax_client extends CI_Controller {
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
@@ -255,7 +249,7 @@ class ajax_client extends CI_Controller {
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
@@ -266,7 +260,7 @@ class ajax_client extends CI_Controller {
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
@@ -277,7 +271,7 @@ class ajax_client extends CI_Controller {
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
@@ -288,7 +282,7 @@ class ajax_client extends CI_Controller {
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
@@ -299,7 +293,7 @@ class ajax_client extends CI_Controller {
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
@@ -310,7 +304,7 @@ class ajax_client extends CI_Controller {
 
                 $params = [
                     'status' => true,
-                    'token'=> get_token(),
+                    'token' => get_token(),
                     'data' => $data
                 ];
 
@@ -321,15 +315,16 @@ class ajax_client extends CI_Controller {
 
 
     //ajax tridharma
-    public function datatable_tridharma(){
+    public function datatable_tridharma()
+    {
         cek_ajax();
         $get_data = $this->datatable->get_data('tridharma');
         $data = [];
 
         $no = 1;
-        foreach($get_data as $gd){
+        foreach ($get_data as $gd) {
             $decode_date = json_decode($gd->tanggal_kegiatan);
-            if($decode_date->start == $decode_date->end){
+            if ($decode_date->start == $decode_date->end) {
                 $c_date = date_create($decode_date->start);
                 $shown_date = date_format($c_date, ' d F Y');
             } else {
@@ -347,12 +342,11 @@ class ajax_client extends CI_Controller {
             $row[] = $gd->jenis_kegiatan;
             $row[] = $shown_date;
             $row[] = $gd->tempat_kegiatan;
-            $row[] = 
-                form_open('admin/detail-tridharma', 'class="action-tridharma"').
-                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
-                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
-                form_close()
-            ;
+            $row[] =
+                form_open('admin/detail-tridharma', 'class="action-tridharma"') .
+                '<input type="hidden" name="id" value="' . $gd->id_encode . '">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>' .
+                form_close();
 
             $data[] = $row;
         }
@@ -368,17 +362,18 @@ class ajax_client extends CI_Controller {
         json_output($output, 200);
     }
 
-    public function detail_tridharma(){
+    public function detail_tridharma()
+    {
         cek_ajax();
         $id = $this->input->post('id', true);
         $data = $this->app->get_where_data('sh_kegiatan_tridharma', 'sha1(id)', $id)->row();
 
-        if($data){
+        if ($data) {
             $decode_date = json_decode($data->tanggal_kegiatan);
             $decode_bukti = json_decode($data->bukti);
 
 
-            if($decode_date->start == $decode_date->end){
+            if ($decode_date->start == $decode_date->end) {
                 $c_date = date_create($decode_date->start);
                 $shown_date = date_format($c_date, ' d F Y');
             } else {
@@ -412,19 +407,20 @@ class ajax_client extends CI_Controller {
                 'token' => get_token()
             ];
         }
-        
+
         json_output($output, 200);
     }
 
 
     //ajax seminar
-    public function datatable_seminar(){
+    public function datatable_seminar()
+    {
         cek_ajax();
         $get_data = $this->datatable->get_data('seminar');
         $data = [];
 
         $no = 1;
-        foreach($get_data as $gd){
+        foreach ($get_data as $gd) {
             $row = [];
 
             $row[] = $no++;
@@ -433,12 +429,11 @@ class ajax_client extends CI_Controller {
             $row[] = $gd->jenis_kegiatan;
             $row[] = $gd->jenis_partisipasi;
             $row[] = $gd->judul_kegiatan;
-            $row[] = 
-                form_open('admin/detail-seminar', 'class="action"').
-                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
-                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
-                form_close()
-            ;
+            $row[] =
+                form_open('admin/detail-seminar', 'class="action"') .
+                '<input type="hidden" name="id" value="' . $gd->id_encode . '">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>' .
+                form_close();
 
             $data[] = $row;
         }
@@ -454,17 +449,18 @@ class ajax_client extends CI_Controller {
         json_output($output, 200);
     }
 
-    public function detail_seminar(){
+    public function detail_seminar()
+    {
         cek_ajax();
         $id = $this->input->post('id', true);
         $data = $this->app->get_where_data('sh_seminar', 'sha1(id)', $id)->row();
 
-        if($data){
+        if ($data) {
             $decode_date = json_decode($data->tanggal_kegiatan);
             $decode_bukti = json_decode($data->bukti);
 
 
-            if($decode_date->start == $decode_date->end){
+            if ($decode_date->start == $decode_date->end) {
                 $c_date = date_create($decode_date->start);
                 $shown_date = date_format($c_date, ' d F Y');
             } else {
@@ -503,20 +499,21 @@ class ajax_client extends CI_Controller {
                 'token' => get_token()
             ];
         }
-        
+
         json_output($output, 200);
     }
 
 
 
     //ajax rekognisi
-    public function datatable_rekognisi(){
+    public function datatable_rekognisi()
+    {
         cek_ajax();
         $get_data = $this->datatable->get_data('rekognisi');
         $data = [];
 
         $no = 1;
-        foreach($get_data as $gd){
+        foreach ($get_data as $gd) {
             $row = [];
 
             $row[] = $no++;
@@ -524,12 +521,11 @@ class ajax_client extends CI_Controller {
             $row[] = $gd->nama;
             $row[] = $gd->tahun;
             $row[] = $gd->penyelenggara;
-            $row[] = 
-                form_open('admin/detail-rekognisi', 'class="action"').
-                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
-                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
-                form_close()
-            ;
+            $row[] =
+                form_open('admin/detail-rekognisi', 'class="action"') .
+                '<input type="hidden" name="id" value="' . $gd->id_encode . '">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>' .
+                form_close();
 
             $data[] = $row;
         }
@@ -545,12 +541,13 @@ class ajax_client extends CI_Controller {
         json_output($output, 200);
     }
 
-    public function detail_rekognisi(){
+    public function detail_rekognisi()
+    {
         cek_ajax();
         $id = $this->input->post('id', true);
         $data = $this->app->get_where_data('sh_rekognisi', 'sha1(id)', $id)->row();
 
-        if($data){
+        if ($data) {
             $decode_bukti = json_decode($data->bukti);
 
             $c_create = date_create($data->create_at);
@@ -581,20 +578,21 @@ class ajax_client extends CI_Controller {
                 'token' => get_token()
             ];
         }
-        
+
         json_output($output, 200);
     }
 
 
 
     //ajax sertifikat
-    public function datatable_sertifikat(){
+    public function datatable_sertifikat()
+    {
         cek_ajax();
         $get_data = $this->datatable->get_data('sertifikat');
         $data = [];
 
         $no = 1;
-        foreach($get_data as $gd){
+        foreach ($get_data as $gd) {
             $row = [];
 
             $row[] = $no++;
@@ -602,12 +600,11 @@ class ajax_client extends CI_Controller {
             $row[] = $gd->nama;
             $row[] = $gd->jenis;
             $row[] = $gd->level;
-            $row[] = 
-                form_open('admin/detail-sertifikat', 'class="action"').
-                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
-                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
-                form_close()
-            ;
+            $row[] =
+                form_open('admin/detail-sertifikat', 'class="action"') .
+                '<input type="hidden" name="id" value="' . $gd->id_encode . '">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>' .
+                form_close();
 
             $data[] = $row;
         }
@@ -623,12 +620,13 @@ class ajax_client extends CI_Controller {
         json_output($output, 200);
     }
 
-    public function detail_sertifikat(){
+    public function detail_sertifikat()
+    {
         cek_ajax();
         $id = $this->input->post('id', true);
         $data = $this->app->get_where_data('sh_sertifikat_kompetensi', 'sha1(id)', $id)->row();
 
-        if($data){
+        if ($data) {
             $decode_bukti = json_decode($data->bukti);
 
             $c_create = date_create($data->create_at);
@@ -659,19 +657,20 @@ class ajax_client extends CI_Controller {
                 'token' => get_token()
             ];
         }
-        
+
         json_output($output, 200);
     }
 
 
     //ajax publikasi
-    public function datatable_publikasi(){
+    public function datatable_publikasi()
+    {
         cek_ajax();
         $get_data = $this->datatable->get_data('publikasi');
         $data = [];
 
         $no = 1;
-        foreach($get_data as $gd){
+        foreach ($get_data as $gd) {
             $row = [];
 
             $row[] = $no++;
@@ -679,12 +678,11 @@ class ajax_client extends CI_Controller {
             $row[] = $gd->nama;
             $row[] = $gd->indeks;
             $row[] = $gd->tahun;
-            $row[] = 
-                form_open('admin/detail-publikasi', 'class="action"').
-                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
-                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
-                form_close()
-            ;
+            $row[] =
+                form_open('admin/detail-publikasi', 'class="action"') .
+                '<input type="hidden" name="id" value="' . $gd->id_encode . '">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>' .
+                form_close();
 
             $data[] = $row;
         }
@@ -700,12 +698,13 @@ class ajax_client extends CI_Controller {
         json_output($output, 200);
     }
 
-    public function detail_publikasi(){
+    public function detail_publikasi()
+    {
         cek_ajax();
         $id = $this->input->post('id', true);
         $data = $this->app->get_where_data('sh_publikasi', 'sha1(id)', $id)->row();
 
-        if($data){
+        if ($data) {
             $decode_bukti = json_decode($data->bukti);
 
             $c_create = date_create($data->create_at);
@@ -736,19 +735,20 @@ class ajax_client extends CI_Controller {
                 'token' => get_token()
             ];
         }
-        
+
         json_output($output, 200);
     }
 
 
-     //ajax Pengelola jurnal
-     public function datatable_jurnal(){
+    //ajax Pengelola jurnal
+    public function datatable_jurnal()
+    {
         cek_ajax();
         $get_data = $this->datatable->get_data('jurnal');
         $data = [];
 
         $no = 1;
-        foreach($get_data as $gd){
+        foreach ($get_data as $gd) {
             $row = [];
 
             $row[] = $no++;
@@ -756,12 +756,11 @@ class ajax_client extends CI_Controller {
             $row[] = $gd->nama;
             $row[] = $gd->jurnal;
             $row[] = $gd->role;
-            $row[] = 
-                form_open('admin/detail-jurnal', 'class="action"').
-                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
-                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
-                form_close()
-            ;
+            $row[] =
+                form_open('admin/detail-jurnal', 'class="action"') .
+                '<input type="hidden" name="id" value="' . $gd->id_encode . '">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>' .
+                form_close();
 
             $data[] = $row;
         }
@@ -777,12 +776,13 @@ class ajax_client extends CI_Controller {
         json_output($output, 200);
     }
 
-    public function detail_jurnal(){
+    public function detail_jurnal()
+    {
         cek_ajax();
         $id = $this->input->post('id', true);
         $data = $this->app->get_where_data('sh_pengelola_jurnal', 'sha1(id)', $id)->row();
 
-        if($data){
+        if ($data) {
             $decode_bukti = json_decode($data->bukti);
 
             $c_create = date_create($data->create_at);
@@ -812,20 +812,21 @@ class ajax_client extends CI_Controller {
                 'token' => get_token()
             ];
         }
-        
+
         json_output($output, 200);
     }
 
 
 
-     //ajax organisasi
-     public function datatable_organisasi(){
+    //ajax organisasi
+    public function datatable_organisasi()
+    {
         cek_ajax();
         $get_data = $this->datatable->get_data('organisasi');
         $data = [];
 
         $no = 1;
-        foreach($get_data as $gd){
+        foreach ($get_data as $gd) {
             $row = [];
 
             $row[] = $no++;
@@ -833,12 +834,11 @@ class ajax_client extends CI_Controller {
             $row[] = $gd->nama;
             $row[] = $gd->tahun;
             $row[] = $gd->organisasi;
-            $row[] = 
-                form_open('admin/detail-organisasi', 'class="action"').
-                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
-                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
-                form_close()
-            ;
+            $row[] =
+                form_open('admin/detail-organisasi', 'class="action"') .
+                '<input type="hidden" name="id" value="' . $gd->id_encode . '">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>' .
+                form_close();
 
             $data[] = $row;
         }
@@ -854,12 +854,13 @@ class ajax_client extends CI_Controller {
         json_output($output, 200);
     }
 
-    public function detail_organisasi(){
+    public function detail_organisasi()
+    {
         cek_ajax();
         $id = $this->input->post('id', true);
         $data = $this->app->get_where_data('sh_organisasi', 'sha1(id)', $id)->row();
 
-        if($data){
+        if ($data) {
             $decode_bukti = json_decode($data->bukti);
 
             $c_create = date_create($data->create_at);
@@ -888,29 +889,30 @@ class ajax_client extends CI_Controller {
                 'token' => get_token()
             ];
         }
-        
+
         json_output($output, 200);
     }
 
 
 
 
-     //ajax HKI
-     public function datatable_hki(){
+    //ajax HKI
+    public function datatable_hki()
+    {
         cek_ajax();
         $get_data = $this->datatable->get_data('hki');
         $data = [];
 
         $no = 1;
-        foreach($get_data as $gd){
+        foreach ($get_data as $gd) {
             $list_dosen = '';
             $dosen_contribute = json_decode($gd->user_info);
-            if(!empty($dosen_contribute)){
-                foreach($dosen_contribute as $dc){
-                    $list_dosen .= '<li>'.$dc.'</li>';
+            if (!empty($dosen_contribute)) {
+                foreach ($dosen_contribute as $dc) {
+                    $list_dosen .= '<li>' . $dc . '</li>';
                 }
             }
-            $list = '<ul><li>'.$gd->user_create.' ('.$gd->user_nip.')</li> '.$list_dosen.'<ul>';
+            $list = '<ul><li>' . $gd->user_create . ' (' . $gd->user_nip . ')</li> ' . $list_dosen . '<ul>';
 
 
             $row = [];
@@ -919,12 +921,11 @@ class ajax_client extends CI_Controller {
             $row[] = $list;
             $row[] = $gd->judul;
             $row[] = $gd->no_hki;
-            $row[] = 
-                form_open('admin/detail-hki', 'class="action"').
-                '<input type="hidden" name="id" value="'.$gd->id_encode.'">
-                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>'.
-                form_close()
-            ;
+            $row[] =
+                form_open('admin/detail-hki', 'class="action"') .
+                '<input type="hidden" name="id" value="' . $gd->id_encode . '">
+                <button class="btn btn-sm btn-secondary w-100" type="submit"><i class="fas fa-search"></i></button>' .
+                form_close();
 
             $data[] = $row;
         }
@@ -940,13 +941,14 @@ class ajax_client extends CI_Controller {
         json_output($output, 200);
     }
 
-    public function detail_hki(){
+    public function detail_hki()
+    {
         cek_ajax();
         $id = $this->input->post('id', true);
         $data = $this->client->get_hki($id)->row();
 
 
-        if($data){
+        if ($data) {
             $decode_bukti = json_decode($data->bukti);
             $decode_dosen = json_decode($data->user_info);
 
@@ -961,7 +963,7 @@ class ajax_client extends CI_Controller {
                     'name' => $data->user_create,
                     'nip' => $data->user_nip
                 ],
-                
+
                 'judul' => $data->judul,
                 'no_hki' => $data->no_hki,
                 'terbit' => date_format($c_tanggal, 'd F Y'),
@@ -983,7 +985,7 @@ class ajax_client extends CI_Controller {
                 'token' => get_token()
             ];
         }
-        
+
         json_output($output, 200);
     }
 }

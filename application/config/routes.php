@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -68,6 +68,8 @@ $route['admin/kerjasama'] = 'admin/view/kerjasama';
 $route['admin/kegiatan-tridharma'] = 'admin/view/kegiatan_tridharma';
 $route['admin/seminar'] = 'admin/view/seminar';
 $route['admin/rekognisi'] = 'admin/view/rekognisi';
+
+$route['admin/data-lab'] = 'admin/view/data_lab';
 $route['admin/sertifikat'] = 'admin/view/sertifikat';
 $route['admin/publikasi'] = 'admin/view/publikasi';
 $route['admin/jurnal'] = 'admin/view/jurnal';
@@ -107,6 +109,9 @@ $route['admin/detail-seminar']['POST'] = 'admin/ajax_client/detail_seminar';
 //routing action di menu rekognisi
 $route['admin/datatable-rekognisi']['POST'] = 'admin/ajax_client/datatable_rekognisi';
 $route['admin/detail-rekognisi']['POST'] = 'admin/ajax_client/detail_rekognisi';
+
+//routing bagian laboratorium
+$route['admin/validasi-lab']['POST'] = 'admin/ajax_lab/validation';
 
 
 //routing action di menu sertifikat kompetensi

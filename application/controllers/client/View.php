@@ -1,13 +1,16 @@
 <?php
-defined('BASEPATH') or exit ('No direct script access allowed');
-class View extends CI_Controller {
+defined('BASEPATH') or exit('No direct script access allowed');
+class View extends CI_Controller
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         check_is_client();
     }
 
-    public function index(){
+    public function index()
+    {
         $data = [
             'title' => 'Dashboard',
             'user' => get_user(),
@@ -17,7 +20,8 @@ class View extends CI_Controller {
     }
 
 
-    public function kegiatan_tridharma(){
+    public function kegiatan_tridharma()
+    {
         $data = [
             'title' => 'Kegiatan Tridharma',
             'user' => get_user(),
@@ -29,7 +33,8 @@ class View extends CI_Controller {
         $this->load->view('client/template', $data);
     }
 
-    public function seminar(){
+    public function seminar()
+    {
         $data = [
             'title' => 'Seminar/Webinar',
             'user' => get_user(),
@@ -42,7 +47,8 @@ class View extends CI_Controller {
         $this->load->view('client/template', $data);
     }
 
-    public function rekognisi(){
+    public function rekognisi()
+    {
         $data = [
             'title' => 'Rekognisi',
             'user' => get_user(),
@@ -56,7 +62,8 @@ class View extends CI_Controller {
         $this->load->view('client/template', $data);
     }
 
-    public function sertifikat_kompetensi(){
+    public function sertifikat_kompetensi()
+    {
         $data = [
             'title' => 'Sertifikat Kompetensi',
             'user' => get_user(),
@@ -68,7 +75,8 @@ class View extends CI_Controller {
         $this->load->view('client/template', $data);
     }
 
-    public function publikasi(){
+    public function publikasi()
+    {
         $data = [
             'title' => 'Publikasi',
             'user' => get_user(),
@@ -80,7 +88,8 @@ class View extends CI_Controller {
         $this->load->view('client/template', $data);
     }
 
-    public function jurnal(){
+    public function jurnal()
+    {
         $role = [
             'Editor in Chief', 'Managing Editor', 'Layouting Editor', 'Associate Editors', 'Reviewer'
         ];
@@ -95,7 +104,8 @@ class View extends CI_Controller {
         $this->load->view('client/template', $data);
     }
 
-    public function organisasi(){
+    public function organisasi()
+    {
         $data = [
             'title' => 'Organisasi',
             'user' => get_user(),
@@ -107,7 +117,8 @@ class View extends CI_Controller {
         $this->load->view('client/template', $data);
     }
 
-    public function hki(){
+    public function hki()
+    {
         $user = get_user();
         $data = [
             'title' => 'HKI',
