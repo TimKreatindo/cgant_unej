@@ -121,7 +121,7 @@
                                 <i class="far fa-folder"></i>
                                 <span>HAKI</span>
                             </a>
-                            </li>
+                            </li> -->
 
                             <li class="sidebar-item">
                                 <a href="<?= base_url('client/hki') ?>" class='sidebar-link'>
@@ -129,7 +129,7 @@
                                     <span>HKI</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item">
+                            <!-- <li class="sidebar-item">
 
                                 <a href="<?= base_url('client/hibah-penelitian') ?>" class='sidebar-link'>
                                     <i class="far fa-folder"></i>
