@@ -17,10 +17,6 @@
                 </thead>
                 <tbody>
 
-                    <?php $i=1; foreach($data as $d){ 
-
-                    <?php $i=1; foreach($data as $d){
-
                     <?php $i=1;
                     foreach($data as $d){
 
