@@ -19,16 +19,7 @@
                     <?php
                     $i  = 1;
                     foreach ($data as $d) {
-                        $decode_bukti = json_decode($d->bukti);
-                        if ($decode_bukti->type == 'file') {
-                            $li_bukti = '';
-                            foreach ($decode_bukti->data as $db) {
-                                $li_bukti .= '<li><a href="' . base_url('assets/upload/organisasi/' . $db->file_name) . '" target="_blank">' . $db->ori_name . '</a></li>';
-                            }
-                            $bukti = '<ul>' . $li_bukti . '</ul>';
-                        } else {
-                            $bukti = '<a href="' . $decode_bukti->url . '" target="_blank">Link</a>';
-                        }
+                        
                     ?>
                         <tr>
                             <td><?= $i++ ?></td>
