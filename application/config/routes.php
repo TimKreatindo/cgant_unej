@@ -76,11 +76,7 @@ $route['admin/jurnal'] = 'admin/view/jurnal';
 $route['admin/organisasi'] = 'admin/view/organisasi';
 $route['admin/hki'] = 'admin/view/hki';
 
-
-
-
-
-
+$route['admin/profile'] = 'admin/view/profile';
 
 
 //routing action di menu master jurusan
@@ -134,6 +130,11 @@ $route['admin/detail-organisasi']['POST'] = 'admin/ajax_client/detail_organisasi
 $route['admin/datatable-hki']['POST'] = 'admin/ajax_client/datatable_hki';
 $route['admin/detail-hki']['POST'] = 'admin/ajax_client/detail_hki';
 
+//routing action user profile
+$route['admin/edit-profile']['POST'] = 'admin/ajax_user/change_profile';
+$route['admin/change_password']['POST'] = 'admin/ajax_user/validation_pass';
+
+
 
 // 
 // 
@@ -155,6 +156,7 @@ $route['client/pengelola-jurnal'] = 'client/view/jurnal';
 $route['client/organisasi'] = 'client/view/organisasi';
 $route['client/hki'] = 'client/view/hki';
 
+$route['client/profile'] = 'client/view/profile';
 
 
 
@@ -184,3 +186,7 @@ $route['client/validasi-organisasi']['POST'] = 'client/ajax_organisasi/validatio
 //routing action di menu HKI
 $route['client/validasi-hki']['POST'] = 'client/ajax_hki/validation';
 $route['client/datatable-list-dosen']['POST'] = 'client/ajax_hki/list_dosen';
+
+//routing action user profile
+$route['client/ubah-profile']['POST'] = 'client/ajax_profile/profile';
+$route['client/ubah-password']['POST'] = 'client/ajax_profile/change_pass';

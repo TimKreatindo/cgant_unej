@@ -167,16 +167,12 @@
                             <a href="<?= base_url('admin/data-lab') ?>" class='pc-link'>
                                 <span class="pc-micon"><i class="fas fa-flask"></i> </span>
                                 <span class="pc-mtext">Data Laboratorium</span>
+                            </a>
 
-                                <a href="<?= base_url('admin/hki') ?>" class="pc-link">
-                                    <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
-                                    <span class="pc-mtext">HKI</span>
-
-                                    <a href="<?= base_url('admin/hki') ?>" class="pc-link">
-                                        <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
-                                        <span class="pc-mtext">HKI</span>
-
-                                    </a>
+                            <a href="<?= base_url('admin/hki') ?>" class="pc-link">
+                                <span class="pc-micon"><i class="far fa-dot-circle"></i> </span>
+                                <span class="pc-mtext">HKI</span>
+                            </a>
                         </li>
 
                     </ul>
@@ -195,9 +191,6 @@
                         <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="material-icons-two-tone">menu</i></a></li>
                         <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="material-icons-two-tone">menu</i></a></li>
 
-                        <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="material-icons-two-tone">menu</i></a></li>
-                        <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="material-icons-two-tone">menu</i></a></li>
-
                     </ul>
                 </div>
                 <!-- [Mobile Media Block end] -->
@@ -206,64 +199,46 @@
 
                         <li class="dropdown pc-h-item header-user-profile">
 
-                            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="user-avtar"> <span class="ms-2"><span class="user-name"><?= word_limiter($user->nama, 4) ?></span>
+                            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="user-avtar"> <span class="ms-2"><span class="user-name"><?= word_limiter($user->nama, 4) ?></span></span>
+                            </a>
 
-                                    <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="user-avtar"> <span class="ms-2"><span class="user-name"><?= word_limiter($user->nama, 4) ?></span>
+                            <span class="user-desc"><?= $user->nama_role ?></span></a>
+                            <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
+                                <div class="dropdown-header d-flex align-items-center justify-content-between">
+                                    <h4 class="m-0">Profile</h4>
+                                </div>
+                                <div class="dropdown-body">
 
-                                            <span class="user-desc"><?= $user->nama_role ?></span></span></a>
-                                    <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
-                                        <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                            <h4 class="m-0">Profile</h4>
-                                        </div>
-                                        <div class="dropdown-body">
+                                    <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
+                                        <ul class="list-group list-group-flush w-100">
+                                            <li class="list-group-item">
+                                                <div class="d-flex align-items-center">
 
-                                            <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
-                                                <ul class="list-group list-group-flush w-100">
-                                                    <li class="list-group-item">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="flex-shrink-0"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="wid-50 rounded-circle"></div>
+                                                    <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
+                                                        <ul class="list-group list-group-flush w-100">
+                                                            <li class="list-group-item">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="flex-shrink-0"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="wid-50 rounded-circle"></div>
 
-                                                            <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
-                                                                <ul class="list-group list-group-flush w-100">
-                                                                    <li class="list-group-item">
-                                                                        <div class="d-flex align-items-center">
-                                                                            <div class="flex-shrink-0"><img src="<?= base_url('assets/img/profile/' . $user->image) ?>" alt="user-image" class="wid-50 rounded-circle"></div>
-
-                                                                            <div class="flex-grow-1 mx-3">
-                                                                                <h5 class="mb-0"><?= $user->nama ?></h5>
-                                                                                <a class="text-sm link-secondary" href="#!"><?= $user->nip ?></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="list-group-item">
-
-                                                                        <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-user-edit"></i> <span>Edit Profile</span>
-                                                                            </span></a>
-
-                                                                        <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-key"></i> <span>Edit Password</span>
-                                                                            </span></a>
-
-                                                                        <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> <span>Keluar</span>
-
-                                                                                <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-user-edit"></i> <span>Edit Profile</span>
-                                                                                    </span></a>
-
-                                                                                <a href="#" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-key"></i> <span>Edit Password</span>
-                                                                                    </span></a>
-
-                                                                                <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> <span>Keluar</span>
-
-                                                                                    </span></a>
-
-
-
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                            </div>
+                                                                    <div class="flex-grow-1 mx-3">
+                                                                        <h5 class="mb-0"><?= $user->nama ?></h5>
+                                                                        <a class="text-sm link-secondary" href="#!"><?= $user->nip ?></a>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="list-group-item">
+                                                                <a href="<?= base_url('admin/profile') ?>" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-user-edit"></i> <span>Edit Profile</span></span></a>
+                                                                <a href="<?= base_url('login/logout') ?>" class="dropdown-item"><span class="d-flex align-items-center"><i class="fas fa-sign-out-alt"></i> <span>Keluar</span></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -302,70 +277,7 @@
         <script src="<?= base_url('template/client/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') ?>">
         </script>
         <script src="<?= base_url('assets/js/file.js') ?>"></script>
-        <script>
-            const base_url = '<?= base_url() ?>'
 
-            function loading_animation() {
-                Swal.fire({
-                    title: 'Loading..',
-                    html: 'Please wait..',
-                    timerProgressBar: true,
-                    draggable: true,
-                    allowOutsideClick: false,
-                    didOpen: () => {
-                        Swal.showLoading()
-                    },
-                })
-            }
-
-            function regenerate_token(token) {
-                const c_name = '<?= $this->security->get_csrf_token_name() ?>'
-                $('input[name="' + c_name + '"]').val(token)
-            }
-
-            function error_alert(msg) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: msg
-                })
-            }
-
-            function error_alert_reloaded(msg) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: msg
-                }).then((res) => {
-                    window.location.reload()
-                })
-            }
-
-            function success_alert(msg) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: msg
-                })
-            }
-
-            function success_alert_reloaded(msg) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: msg
-                }).then((res) => {
-                    window.location.reload()
-                })
-            }
-        </script>
-        <?php
-        if (isset($js)) {
-            foreach ($js as $j) {
-                echo '<script src="' . base_url('assets/js/admin/') . $j . '"></script>';
-            }
-        }
-        ?>
         <script>
             const base_url = '<?= base_url() ?>'
 

@@ -119,7 +119,6 @@
                     </select>
                 </div>
 
-
                 <div class="form-group my-3">
                     <label><b>Tingkat</b></label>
                     <select name="level" id="level" class="form-control" required>
@@ -240,3 +239,4 @@
             </div>
         </div>
     </div>
+</div>

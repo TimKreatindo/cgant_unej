@@ -129,4 +129,18 @@ class View extends CI_Controller
         ];
         $this->load->view('client/template', $data);
     }
+
+    //TAMBAHAN MAS IK
+    public function profile()
+    {
+        $user = get_user();
+        $data = [
+            'title' => 'Profile',
+            'view' => 'client/user_profile',
+            'user' => $user,
+            'js' => ['user.js']
+        ];
+
+        $this->load->view('client/template', $data);
+    }
 }
