@@ -108,9 +108,7 @@
                     <label><b>Jenis Kegiatan</b></label>
                     <select name="jenis_kegiatan" id="jenis_kegiatan" class="form-control">
                         <option value="">--pilih--</option>
-                        <option value="Seminar Internasional">Seminar Internasional</option>
-                        <option value="Seminar Nasional">Seminar Nasional</option>
-                        <option value="Workshop">Workshop</option>
+                      
                         <?php
                           foreach ($kegiatan as $key) {
                             echo '<option value="'.$key.'">'.$key.'</option>';
